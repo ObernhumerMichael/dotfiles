@@ -17,3 +17,7 @@ Launch tmux, press `STRG+A I` to install all the plugins.
 
 1. Launch btop, press `ESC`, and select `OPTIONS`.
 1. Select your flavour of choice.
+
+### bat
+
+Run `bat cache --build` to rebuild bats cache and activate its theme.

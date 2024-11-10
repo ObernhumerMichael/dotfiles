@@ -22,22 +22,17 @@ HIST_STAMPS="dd.mm.yyyy"
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 plugins=(git docker zsh-autosuggestions zsh-you-should-use zsh-syntax-highlighting)
-
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
+BAT_THEME="Catppuccin_Mocha"
 export EDITOR='nvim'
+eval "$(zoxide init zsh)"
+source <(fzf --zsh)
+export FZF_DEFAULT_OPTS='--height 40% --tmux bottom,40% --layout reverse --border top --preview "bat --color=always --style=numbers --line-range=:500 {}"'
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-# Set personal aliases, overriding those provided by Oh My Zsh libs,
-# plugins, and themes. Aliases can be placed here, though Oh My Zsh
-# users are encouraged to define aliases within a top-level file in
-# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
-# - $ZSH_CUSTOM/aliases.zsh
-# - $ZSH_CUSTOM/macos.zsh
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias e="exa --icons"
+alias ee="exa -algm --icons"
+alias ea="exa -a --icons"

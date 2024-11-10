@@ -20,7 +20,8 @@ if [[ -f "$CONFIG_FILE" ]]; then
         # Check if the target already exists
         if [[ -L "$dest" || -e "$dest" ]]; then
             echo "Warning: $dest already exists."
-            read -p "Do you want to overwrite it? (y/N): " answer < /dev/tty
+            # read -p "Do you want to overwrite it? (y/N): " answer < /dev/tty
+            answer="y"
             if [[ "$answer" == "y" || "$answer" == "Y" ]]; then
                 rm -rf "$dest"
                 echo "Removed existing $dest"
@@ -31,6 +32,7 @@ if [[ -f "$CONFIG_FILE" ]]; then
         fi
 
         # Create the destination directory's parent if it doesn't exist
+        echo "$(dirname "$dest")"
         mkdir -p "$(dirname "$dest")"
 
         # Check if the source is a directory
