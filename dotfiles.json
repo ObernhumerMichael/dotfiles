@@ -9,5 +9,6 @@
   "zsh/plugins/zsh-syntax-highlighting": "~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting",
   "zsh/plugins/zsh-autosuggestions": "~/.oh-my-zsh/custom/plugins/zsh-autosuggestions",
   "zsh/plugins/zsh-you-should-use": "~/.oh-my-zsh/custom/plugins/zsh-you-should-use",
-  "zsh/plugins/powerlevel10k": "~/.oh-my-zsh/custom/themes/powerlevel10k"
+  "zsh/plugins/powerlevel10k": "~/.oh-my-zsh/custom/themes/powerlevel10k",
+  "nvim": "~/.config/nvim"
 }
