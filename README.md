@@ -1,4 +1,4 @@
-# dotfiles
+# Install
 
 To install the dotfiles
 
@@ -7,5 +7,13 @@ To install the dotfiles
 ./symlink-dotfiles.sh
 ```
 
-Start tmux and hit STRG+A I to install all the plugins.
+## Special Setup
 
+### tmux
+
+Launch tmux, press `STRG+A I` to install all the plugins.
+
+### btop
+
+1. Launch btop, press `ESC`, and select `OPTIONS`.
+1. Select your flavour of choice.

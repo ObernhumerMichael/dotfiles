@@ -10,5 +10,6 @@
   "zsh/plugins/zsh-autosuggestions": "~/.oh-my-zsh/custom/plugins/zsh-autosuggestions",
   "zsh/plugins/zsh-you-should-use": "~/.oh-my-zsh/custom/plugins/zsh-you-should-use",
   "zsh/plugins/powerlevel10k": "~/.oh-my-zsh/custom/themes/powerlevel10k",
-  "nvim": "~/.config/nvim"
+  "nvim": "~/.config/nvim",
+  "btop/catppuccin/themes/catppuccin_mocha.theme": "~/.config/btop/themes/catppuccin_mocha.theme"
 }

@@ -19,3 +19,6 @@
 [submodule "zsh/plugins/powerlevel10k"]
 	path = zsh/plugins/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
+[submodule "btop/catppuccin"]
+	path = btop/catppuccin
+	url = https://github.com/catppuccin/btop.git
