@@ -1,0 +1,6 @@
+{
+  "hypr": "~/.config/hypr",
+  "tmux/tpm": "~/.tmux/plugins/tpm",
+  "tmux/catppuccin": "~/.config/tmux/plugins/catppuccin/tmux",
+  "tmux/.tmux.conf": "~/.tmux.conf"
+}
