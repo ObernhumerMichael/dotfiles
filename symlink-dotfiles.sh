@@ -20,8 +20,7 @@ if [[ -f "$CONFIG_FILE" ]]; then
         # Check if the target already exists
         if [[ -L "$dest" || -e "$dest" ]]; then
             echo "Warning: $dest already exists."
-            # read -p "Do you want to overwrite it? (y/N): " answer < /dev/tty
-            answer="y"
+            read -p "Do you want to overwrite it? (y/N): " answer < /dev/tty
             if [[ "$answer" == "y" || "$answer" == "Y" ]]; then
                 rm -rf "$dest"
                 echo "Removed existing $dest"

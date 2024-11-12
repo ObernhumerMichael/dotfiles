@@ -12,5 +12,6 @@
   "zsh/plugins/powerlevel10k": "~/.oh-my-zsh/custom/themes/powerlevel10k",
   "nvim": "~/.config/nvim",
   "btop/catppuccin/themes/catppuccin_mocha.theme": "~/.config/btop/themes/catppuccin_mocha.theme",
-  "bat/theme.tmTheme": "~/.config/bat/themes/Catppuccin_Mocha.tmTheme"
+  "bat/theme.tmTheme": "~/.config/bat/themes/Catppuccin_Mocha.tmTheme",
+  "eww": "~/.config/eww"
 }

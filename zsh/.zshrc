@@ -21,11 +21,11 @@ HIST_STAMPS="dd.mm.yyyy"
 
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-plugins=(git docker zsh-autosuggestions zsh-you-should-use zsh-syntax-highlighting)
+plugins=(git docker zsh-autosuggestions zsh-you-should-use command-not-found zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-BAT_THEME="Catppuccin_Mocha"
+export BAT_THEME="Catppuccin_Mocha"
 export EDITOR='nvim'
 eval "$(zoxide init zsh)"
 source <(fzf --zsh)
