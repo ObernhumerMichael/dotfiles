@@ -10,7 +10,6 @@ return {
         "marksman",
         "black",
         "beautysh",
-        -- "bash-language-server",
         "bashls",
       },
     },

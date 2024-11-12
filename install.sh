@@ -1,9 +1,13 @@
 mkdir ~/Applications
 cd ~/Applications
 # Basics Hyprland 
-sudo pacman -S zsh hyprland ttf-jetbrains-mono-nerd sddm swaync pipewire wireplumber xdg-desktop-portal-hyprland qt5-wayland qt6-wayland git base-devel 
+sudo pacman -S zsh hyprland ttf-jetbrains-mono-nerd sddm swaync pipewire wireplumber xdg-desktop-portal-hyprland qt5-wayland qt6-wayland git base-devel bluez bluez-utils blueman
+
 # Enable Login Manger
 sudo stystemctl enable sddm.service
+sudo systemctl enable bluetooth
+sudo systemctl start bluetooth
+
 
 # Install Oh My ZSH
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

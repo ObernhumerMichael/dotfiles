@@ -1,10 +1,41 @@
-(defwindow powermenu
-  :monitor 0 ;; Optional for X11
-  :stacking "fg"
-  :windowtype "normal"
-  :wm-ignore true
-  :geometry (geometry
-              :width "100%"
-              :height "100%")
-  (powermenu_layout))
+(defwindow bar 
+           :monitor 0
+           :geometry (geometry :width "100%"
+                               :height "35px"
+                               :anchor "top center")
+           :stacking "fg"
+           :windowtype "dock"
+           :exclusive true
+  (layout))
+
+(defwidget layout[]
+  (box :class "layout" 
+    (container-left)
+    (container-center)
+    (container-right)))
+   
+
+(defwidget container-left[]
+ (box :class "container-left container" :halign "start"  :spacing 5 
+    (label :text "test")
+    (label :text "test")))
+  
+ 
+(defwidget container-center[]
+ (box :class "container-center container" :halign "center"
+    (label :text "XX:XX")))
+  
+ 
+(defwidget container-right[]
+ (box :class "container-right container" :halign "end" :spacing 5 
+    (label :text "test")
+    (label :text "test")))
+  
+  
+ 
+ 
+
+ 
+
+ 
 
