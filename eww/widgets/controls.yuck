@@ -1,0 +1,15 @@
+(defwidget sound[]
+ (box :class "widget sound"
+  (label :text "SOUND")))
+ 
+(defwidget wifi[]
+ (box :class "widget wifi"
+  (label :text "WIFI")))
+
+(defwidget battery[]
+ (box :class "widget battery"
+  (label :text "BATTERY")))
+ 
+(defwidget time[]
+ (box :class "widget time"
+  (label :text "TIME")))

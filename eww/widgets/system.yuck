@@ -1,0 +1,15 @@
+(defwidget cpu[]
+ (box :class "widget cpu" 
+  (image :path "img/cpu.svg" :image-width 25) 
+  (label :text "CPU")))
+ 
+ 
+(defwidget ram[]
+ (box :class "widget ram" :space 0
+  (label :text "${EWW_RAM["free_mem"]/1024/1024/1024}")
+  (label :text "RAM")))
+
+(defwidget temp[]
+ (box :class "widget temp"
+  (label :text "TEMPERATURE")))
+

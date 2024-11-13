@@ -1,61 +1,77 @@
-// Theme: Catppuccin Mocha
-$rosewater: #f5e0dc;
-$flamingo: #f2cdcd;
-$pink: #f5c2e7;
-$mauve: #cba6f7;
-$red: #f38ba8;
-$maroon: #eba0ac;
-$peach: #fab387;
-$yellow: #f9e2af;
-$green: #a6e3a1;
-$teal: #94e2d5;
-$sky: #89dceb;
-$sapphire: #74c7ec;
-$blue: #89b4fa;
-$lavender: #b4befe;
-$text: #cdd6f4;
-$subtext1: #bac2de;
-$subtext0: #a6adc8;
-$overlay2: #9399b2;
-$overlay1: #7f849c;
-$overlay0: #6c7086;
-$surface2: #585b70;
-$surface1: #45475a;
-$surface0: #313244;
-$base: #1e1e2e;
-$mantle: #181825;
-$crust: #11111b;
+@import "colors/_colorscheme-catppuccin-mocha.scss";
+
+$whitespace: 5px;
+$system-whitespcae: 15px;
+
+// General
 
 * {
   all: unset;
-  color: $text;
+  color: $base;
   font-family: system-ui;
   font-size: 20;
 }
 
+// Layout
+
 .layout {
-  margin-left: 15px;
-  margin-right: 15px;
-  margin-top: 5px;
+  margin-left: $system-whitespcae;
+  margin-right: $system-whitespcae;
+  margin-top: $whitespace;
 
-  background-color: $mantle;
-
-  border-color: $mauve;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 5;
+  background-color: $blue;
 }
 
 .container-left {
   background-color: $red;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: $whitespace;
+  padding-right: $whitespace;
 }
 .container-center {
-  background-color: $blue;
+  background-color: $mauve;
 }
 .container-right {
   background-color: $yellow;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: $whitespace;
+  padding-right: $whitespace;
+}
+
+.widget {
+  background-color: $teal;
+  padding-left: $whitespace;
+  padding-right: $whitespace;
+
+  border-radius: 5px;
+}
+
+// System widgets
+
+.cpu {
+  background-color: $mauve;
+}
+
+.ram {
+  background-color: $lavender;
+}
+
+.temp {
+  background-color: $blue;
+}
+
+// control widgets
+
+.sound {
+  background-color: $sapphire;
+}
+
+.wifi {
+  background-color: $teal;
+}
+
+.battery {
+  background-color: $green;
+}
+
+.time {
+  background-color: $peach;
 }

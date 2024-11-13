@@ -1,3 +1,6 @@
+(include "./widgets/system.yuck")
+(include "./widgets/controls.yuck")
+
 (defwindow bar 
            :monitor 0
            :geometry (geometry :width "100%"
@@ -16,26 +19,28 @@
    
 
 (defwidget container-left[]
- (box :class "container-left container" :halign "start"  :spacing 5 
-    (label :text "test")
-    (label :text "test")))
+ (box :class "container-left container" :halign "start"  :spacing 5 :space-evenly false
+    (cpu)
+    (ram)
+    (temp)))
   
  
 (defwidget container-center[]
- (box :class "container-center container" :halign "center"
+ (box :class "container-center container" :halign "center" :spacing 5 :space-evenly false
+
+    (label :text "XX:XX")
     (label :text "XX:XX")))
+  
   
  
 (defwidget container-right[]
- (box :class "container-right container" :halign "end" :spacing 5 
-    (label :text "test")
-    (label :text "test")))
+ (box :class "container-right container" :halign "end" :spacing 5 :space-evenly false
+
+    (sound)
+    (wifi)
+    (battery)
+    (time)))
+
   
   
- 
- 
-
- 
-
- 
-
+  
