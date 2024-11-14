@@ -1,0 +1,34 @@
+#!/bin/bash
+
+history_path="/tmp/.ifstat_net_speed_down"
+touch "$history_path"
+export IFSTAT_HISTORY="$history_path"
+
+# Get the interface that is currently in use
+interface="$(route | grep default | head -n1 | awk '{print $8}')"
+
+# Get the diff of received data since the last ifstat call
+rx_bytes=$(ifstat | grep "$interface" | awk '{print $6}')
+
+# Check if tx_bytes contains an SI units and convert them
+if [[ "$rx_bytes" == *K ]]; then
+    # Remove the "K" and multiply by 1000
+    Bytes=$(( ${rx_bytes%K} * 1000 ))
+elif [[ "$rx_bytes" == *M ]]; then
+    # Remove the "M" and multiply by 1000^2
+    Bytes=$(( ${rx_bytes%M} * 1000 * 1000))
+elif [[ "$rx_bytes" == *G ]]; then
+    # Remove the "G" and multiply by 1000^3
+    Bytes=$(( ${rx_bytes%G} * 1000 * 1000 * 1000))
+else 
+    Bytes=$rx_bytes
+fi
+
+Kbits=$(($Bytes / 1000))
+
+if [[ $Kbits -ge 100 ]]; then
+  Mbits=$(printf "%.1f" $(echo "$Kbits/ 1000" | bc -l))
+  echo "$Mbits Mbit/s"
+else
+  echo "$Kbits Kbit/s"
+fi

@@ -31,6 +31,7 @@ eval "$(zoxide init zsh)"
 source <(fzf --zsh)
 export FZF_DEFAULT_OPTS='--height 40% --tmux bottom,40% --layout reverse --border top --preview "bat --color=always --style=numbers --line-range=:500 {}"'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANROFFOPT="-c"
 
 
 alias e="exa --icons"

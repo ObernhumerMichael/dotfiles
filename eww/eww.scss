@@ -1,7 +1,7 @@
 @import "colors/_colorscheme-catppuccin-mocha.scss";
 
-$whitespace: 5px;
-$system-whitespcae: 15px;
+$whitespace: 10px;
+$system-whitespcae: 20px;
 
 // General
 
@@ -17,23 +17,16 @@ $system-whitespcae: 15px;
 .layout {
   margin-left: $system-whitespcae;
   margin-right: $system-whitespcae;
-  margin-top: $whitespace;
-
-  background-color: $blue;
 }
 
 .container-left {
   background-color: $red;
-  padding-left: $whitespace;
-  padding-right: $whitespace;
 }
 .container-center {
   background-color: $mauve;
 }
 .container-right {
   background-color: $yellow;
-  padding-left: $whitespace;
-  padding-right: $whitespace;
 }
 
 .widget {
@@ -54,14 +47,21 @@ $system-whitespcae: 15px;
   background-color: $lavender;
 }
 
-.temp {
+.temperature {
   background-color: $blue;
 }
 
+.net-up {
+  background-color: $sapphire;
+}
+
+.net-down {
+  background-color: $sapphire;
+}
 // control widgets
 
 .sound {
-  background-color: $sapphire;
+  background-color: $sky;
 }
 
 .wifi {

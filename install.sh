@@ -1,7 +1,7 @@
 mkdir ~/Applications
 cd ~/Applications
 # Basics Hyprland 
-sudo pacman -S zsh hyprland ttf-jetbrains-mono-nerd sddm swaync pipewire wireplumber xdg-desktop-portal-hyprland qt5-wayland qt6-wayland git base-devel bluez bluez-utils blueman
+sudo pacman -S zsh hyprland ttf-jetbrains-mono-nerd sddm swaync pipewire wireplumber xdg-desktop-portal-hyprland qt5-wayland qt6-wayland git base-devel bluez bluez-utils blueman net-tools bc
 
 # Enable Login Manger
 sudo stystemctl enable sddm.service

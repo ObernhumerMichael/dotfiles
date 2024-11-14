@@ -1,15 +1,30 @@
+(defpoll temperature :interval "2s" "scripts/temperature")
+(defpoll net-speed-down :interval "1s" "scripts/net-speed-down")
+(defpoll net-speed-up :interval "1s" "scripts/net-speed-up")
+
 (defwidget cpu[]
- (box :class "widget cpu" 
-  (image :path "img/cpu.svg" :image-width 25) 
-  (label :text "CPU")))
+ (box :class "widget cpu" :space-evenly false :spacing 10
+  (image :path "img/cpu.svg" :image-heigth 25) 
+  (label :text "${round(EWW_CPU["avg"],0)}%")))
  
  
 (defwidget ram[]
- (box :class "widget ram" :space 0
-  (label :text "${EWW_RAM["free_mem"]/1024/1024/1024}")
-  (label :text "RAM")))
+ (box :class "widget ram" :space-evenly false :spacing 10
+  (image :path "img/ram.svg" :image-heigth 25) 
+  (label :text "${round(EWW_RAM["used_mem_perc"],0)}%")))
 
-(defwidget temp[]
- (box :class "widget temp"
-  (label :text "TEMPERATURE")))
+(defwidget temperature[]
+ (box :class "widget temperature" :space-evenly false :spacing 10
+  (image :path "img/temperature.svg" :image-heigth 25) 
+  (label :text "${temperature}°C")))
+
+(defwidget net-up[]
+ (box :class "widget net-up" :space-evenly false :spacing 10
+  (image :path "img/upload.svg" :image-heigth 25) 
+  (label :text "${net-speed-up}"))) 
+
+(defwidget net-down[]
+ (box :class "widget net-down" :space-evenly false :spacing 10
+  (image :path "img/download.svg" :image-heigth 25)
+  (label :text "${net-speed-down}"))) 
 
