@@ -18,6 +18,10 @@
     (container-center)
     (container-right)))
    
+(defwidget icon-text [icon_path text class]
+ (box :class "widget ${class}" :space-evenly false :spacing 10
+  (image :path "${icon_path}" :image-heigth 25) 
+  (label :text "${text}")))
 
 (defwidget container-left[]
  (box :class "container-left container" :halign "start"  :spacing 5 :space-evenly false
