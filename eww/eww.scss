@@ -19,14 +19,8 @@ $system-whitespcae: 20px;
   margin-right: $system-whitespcae;
 }
 
-.container-left {
-  background-color: $red;
-}
 .container-center {
   background-color: $mauve;
-}
-.container-right {
-  background-color: $yellow;
 }
 
 .widget {
@@ -74,4 +68,17 @@ $system-whitespcae: 20px;
 
 .time {
   background-color: $peach;
+}
+
+.metric scale trough highlight {
+  background-color: $surface2;
+  border-radius: 100px;
+}
+
+.metric scale trough {
+  background-color: $base;
+  border-radius: 100px;
+  min-height: 15px;
+  min-width: 150px;
+  margin-right: $whitespace;
 }

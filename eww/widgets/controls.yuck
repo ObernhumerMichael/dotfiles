@@ -1,7 +1,24 @@
+(defvar is-sound-hover false) 
+
+(defwidget metric [value onchange]
+  (box :orientation "h"
+       :class "metric"
+       :space-evenly false
+    (scale :min 0
+           :max 101
+           :active {onchange != ""}
+           :value value
+           :onchange onchange)))
+
 (defwidget sound[]
- (box :class "widget sound"
-  (label :text "SOUND")))
- 
+  (eventbox :class "eventbox"
+              :onhover "eww update is-sound-hover=true"
+              :onhoverlost "eww update is-sound-hover=false"
+   (box :class "widget sound" :space-evenly false :hexpand true
+    (revealer :transition "slideleft" :reveal is-sound-hover
+       (metric :value 30 :onchange "asdf")) 
+    (image :path "img/volume_up.svg" :image-heigth 25)))) 
+
 (defwidget wifi[]
  (box :class "widget wifi"
   (label :text "WIFI")))
