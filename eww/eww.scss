@@ -9,7 +9,8 @@ $system-whitespcae: 20px;
   all: unset;
   color: $base;
   font-family: system-ui;
-  font-size: 20;
+  font-weight: 500;
+  font-size: 15;
 }
 
 .metric scale trough highlight {
@@ -31,6 +32,11 @@ $system-whitespcae: 20px;
   padding-right: $whitespace;
 
   border-radius: 5px;
+}
+
+.tooltip {
+  padding-top: $whitespace/2;
+  padding-bottom: $whitespace/2;
 }
 
 // Layout
