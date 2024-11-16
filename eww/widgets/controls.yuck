@@ -1,26 +1,15 @@
 (defvar is-sound-hover false) 
-(defpoll volume :interval "1s" "scripts/getvol")
-
-(defwidget metric [value onchange]
-  (box :orientation "h"
-       :class "metric"
-       :space-evenly false
-    (scale :min 0
-           :max 101
-           :active {onchange != ""}
-           :value volume
-           :onchange "amixer set Master {}%")))
+(defpoll volume :interval "1s" :initial 0 "scripts/getvol")
 
 (defwidget sound[]
-  (eventbox :class "eventbox"
-              :onhover "eww update is-sound-hover=true"
-              :onhoverlost "eww update is-sound-hover=false"
-    (tooltip (label :class "widget sound" :text "${volume}%")
-     (box :class "widget sound" :space-evenly false :hexpand true
-      (revealer :transition "slideleft" :reveal is-sound-hover
-         (metric :value volume :onchange "asdf")) 
-      (image :path "img/volume_up.svg" :image-heigth 25)))))
-     
+ (metric-icon-revealer 
+    :value volume 
+    :class "widget sound"
+    :hover-var is-sound-hover
+    :hover-varname "is-sound-hover"
+    :onchange "amixer set Master {}%"
+    :tooltip "${volume}%"
+    :icon-path "img/volume_up.svg"))
 
 (defwidget wifi[]
  (box :class "widget wifi"

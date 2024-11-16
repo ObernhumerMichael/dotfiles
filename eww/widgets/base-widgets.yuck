@@ -1,0 +1,24 @@
+(defwidget icon-text [icon_path text class]
+ (box :class "widget ${class}" :space-evenly false :spacing 10
+  (image :path icon_path :image-height 20) 
+  (label :text "${text}")))
+
+(defwidget metric [value onchange]
+  (box :orientation "h"
+       :class "metric"
+       :space-evenly false
+    (scale :min 0
+           :max 101
+           :active {onchange != ""}
+           :value value 
+           :onchange onchange)))
+
+(defwidget metric-icon-revealer[value class hover-var hover-varname onchange tooltip icon-path]
+  (eventbox :class "eventbox"
+              :onhover "eww update ${hover-varname}=true"
+              :onhoverlost "eww update ${hover-varname}=false"
+    (tooltip (label :class class :text tooltip)
+     (box :class class :space-evenly false :hexpand true
+      (revealer :transition "slideleft" :reveal {is-sound-hover}
+         (metric :value value :onchange onchange)) 
+      (image :path icon-path :image-height 20)))))
