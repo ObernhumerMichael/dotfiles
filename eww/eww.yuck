@@ -39,6 +39,7 @@
 (defwidget container-right[]
  (box :class "container" :halign "end" :spacing 5 :space-evenly false
     (sound)
+    (brightness)
     (wifi)
     (battery)
     (time)))

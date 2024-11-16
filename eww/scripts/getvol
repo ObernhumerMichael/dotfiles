@@ -1,3 +1,9 @@
 #!/bin/bash
 
-amixer get Master | awk -F '[^0-9]+' '/Left:/{print $3}'
+is_volume_on=$( amixer get Master | grep -F '[on]' )
+
+if [[ $is_volume_on ]]; then
+  amixer get Master | awk -F '[^0-9]+' '/Left:/{print $3}'
+else 
+  echo "off"
+fi
