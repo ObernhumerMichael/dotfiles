@@ -1,5 +1,6 @@
 mkdir ~/Applications
 cd ~/Applications
+
 # Basics Hyprland 
 sudo pacman -S zsh hyprland ttf-jetbrains-mono-nerd sddm swaync xdg-desktop-portal-hyprland qt5-wayland qt6-wayland git base-devel bluez bluez-utils blueman net-tools bc
 
@@ -17,7 +18,7 @@ sudo systemctl start bluetooth
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # System 
-sudo pacman -S rofi-wayland tmux openssh neovim unzip nodejs npm
+sudo pacman -S rofi-wayland tmux openssh neovim unzip nodejs npm brightnessctl
 
 # CLI tools
 sudo pacman -S exa bandwhich fzf bat duf zoxide entr ripgrep tldr

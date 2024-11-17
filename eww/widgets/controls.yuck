@@ -1,9 +1,10 @@
 (defvar is-sound-hover false) 
+(defvar last-volume 30) 
 (defpoll volume :interval "1s" :initial 30 "scripts/getvol")
 
 (defwidget sound[]
  (metric-icon-revealer 
-    :value volume 
+    :value {volume != "off" ? volume : 0} 
     :class "widget sound"
     :hover-var is-sound-hover
     :hover-varname "is-sound-hover"

@@ -10,7 +10,7 @@
     (scale :min 0
            :max 101
            :active {onchange != ""}
-           :value value 
+           :value value
            :onchange onchange)))
 
 (defwidget metric-icon-revealer[value class hover-var hover-varname onchange tooltip icon-path]

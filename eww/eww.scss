@@ -1,4 +1,4 @@
-@import "colors/_colorscheme-catppuccin-mocha.scss";
+@import "css/colorscheme-catppuccin-mocha.scss";
 
 $whitespace: 10px;
 $system-whitespcae: 20px;
@@ -13,80 +13,6 @@ $system-whitespcae: 20px;
   font-size: 15;
 }
 
-.metric scale trough highlight {
-  background-color: $surface2;
-  border-radius: 100px;
-}
+@import "css/general.scss";
 
-.metric scale trough {
-  background-color: $base;
-  border-radius: 100px;
-  min-height: 15px;
-  min-width: 150px;
-  margin-right: $whitespace;
-}
-
-.widget {
-  background-color: $teal;
-  padding-left: $whitespace;
-  padding-right: $whitespace;
-
-  border-radius: 5px;
-}
-
-.tooltip {
-  padding-top: $whitespace/2;
-  padding-bottom: $whitespace/2;
-}
-
-// Layout
-.layout {
-  margin-left: $system-whitespcae;
-  margin-right: $system-whitespcae;
-}
-
-.container-center {
-  background-color: $mauve;
-}
-
-// System widgets
-
-.cpu {
-  background-color: $mauve;
-}
-
-.ram {
-  background-color: $lavender;
-}
-
-.temperature {
-  background-color: $blue;
-}
-
-.net-up {
-  background-color: $sapphire;
-}
-
-.net-down {
-  background-color: $sapphire;
-}
-// control widgets
-
-.sound {
-  background-color: $sky;
-}
-
-.brightness {
-  background-color: $yellow;
-}
-.wifi {
-  background-color: $teal;
-}
-
-.battery {
-  background-color: $green;
-}
-
-.time {
-  background-color: $peach;
-}
+@import "css/widgets.scss";
