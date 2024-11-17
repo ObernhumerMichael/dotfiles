@@ -1,0 +1,9 @@
+#!/bin/bash
+
+is_available=$(nmcli device status | grep ethernet | grep connected)
+
+if [[ -n $is_available ]]; then
+  echo true
+else
+  echo false
+fi

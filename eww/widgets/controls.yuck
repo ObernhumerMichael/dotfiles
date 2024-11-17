@@ -8,7 +8,10 @@
     :hover-varname "is-sound-hover"
     :onchange "amixer set Master {}%"
     :tooltip "${volume != "off" ? "${volume}%" : "off"}"
-    :icon-path "img/volume/${volume == "off" ? "volume_off.svg" : volume==0 ? "volume_mute.svg": volume >= 50 ? "volume_up.svg" : "volume_down.svg"}"))
+    :icon-path "img/volume/${volume == "off" ? "volume_off.svg" 
+      : volume==0 ? "volume_mute.svg"
+      : volume >= 50 ? "volume_up.svg" 
+      : "volume_down.svg"}"))
 
 
 (defvar is-brightness-hover false) 
@@ -21,7 +24,10 @@
     :hover-varname "is-brightness-hover"
     :onchange "brightnessctl set {}% -n 1%"
     :tooltip "${brightness}%"
-    :icon-path "img/brightness/${brightness < 5 ? "brightness_min.svg" : brightness < 45 ? "brightness_low.svg" : brightness < 55 ? "brightness-medium.svg" : "brightness_high.svg"}"))
+    :icon-path "img/brightness/${brightness < 5 ? "brightness_min.svg" 
+      : brightness < 45 ? "brightness_low.svg" 
+      : brightness < 55 ? "brightness-medium.svg" 
+      : "brightness_high.svg"}"))
 
 
 (defpoll active-network-name :interval "2s" :initial "" "scripts/get-network-name")
@@ -31,8 +37,16 @@
    (box :space-evenly false :spacing 10
     (tooltip 
        (label :class "widget network tooltip" 
-          :text {active-network-name != "" ? "${active-network-name} ${active-network-strength}%" : "not connected"})
-       (image :path "img/wifi/${active-network-name == "" ? "off.svg" : active-network-strength < 30 ? "unusable.svg" : active-network-strength < 50 ? "weak.svg" : active-network-strength < 70 ? "fair.svg" : active-network-strength < 90 ? "good.svg" : "excellent.svg" }" :image-height 15)))))
+          ; if there is both a name and strength it is wlan, if there is only a name it is LAN
+          :text {active-network-name != "" && active-network-strength != "" ? "${active-network-name} ${active-network-strength}%" : active-network-name != "" ? active-network-name : "not connected"})
+       (image :path "img/network/${active-network-name != "" && active-network-strength == "" ? "lan.svg" 
+          : active-network-name == "" ? "off.svg" 
+          : active-network-strength < 30 ? "unusable.svg" 
+          : active-network-strength < 50 ? "weak.svg" 
+          : active-network-strength < 70 ? "fair.svg" 
+          : active-network-strength < 90 ? "good.svg" 
+          : "excellent.svg" }" 
+          :image-height 15)))))
 
 (defwidget battery[]
  (box :class "widget battery"
