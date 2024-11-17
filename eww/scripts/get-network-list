@@ -1,0 +1,10 @@
+#!/bin/bash
+
+array_content=$(nmcli -t -f ssid dev wifi |  # get the SSIDs
+  awk '{$1=$1}1' | # remove trailing and preceding whitespaces
+  grep -v '^$' | # remove empty lines
+  sort | # sort the output --> needed for uniq
+  uniq | # remove duplicates
+  awk '{printf("\"%s\", ", $0)}' | sed 's/, $/\n/') # bring input into array like format
+
+echo "[$array_content]"

@@ -1,0 +1,15 @@
+(defpoll wifi-list :interval "1s" :initial "" "scripts/get-network-list")
+(defwindow wifi
+  :class "widget"
+  :monitor 0
+  :geometry (geometry :width "15%"
+                      :height "30px"
+                      :y "5px"
+                      :anchor "top right")
+  :stacking "overlay"
+  :windowtype "dock"
+  :exclusive false
+  (box :class "ssid-list" :orientation "vertical"
+    (for wifi in wifi-list
+     (button :class "ssid" :onclick "scripts/connect-to-wifi ${wifi}"
+      (label :text wifi :xalign 0)))))

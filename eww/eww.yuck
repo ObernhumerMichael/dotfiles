@@ -1,6 +1,7 @@
 (include "./widgets/base-widgets.yuck")
 (include "./widgets/system.yuck")
 (include "./widgets/controls.yuck")
+(include "./widgets/wifi.yuck")
 
 (defwindow bar 
   :monitor 0
@@ -40,6 +41,6 @@
  (box :class "container" :halign "end" :spacing 5 :space-evenly false
     (sound)
     (brightness)
-    (wifi)
+    (network)
     (battery)
     (time)))

@@ -30,8 +30,27 @@
   background-color: $yellow;
 }
 
-.wifi {
+.network {
   background-color: $teal;
+}
+.network:hover {
+  background-color: rgba($color: $teal, $alpha: 0.9);
+}
+
+.ssid-list {
+  background-color: $teal;
+  padding: $whitespace;
+  border-radius: $border-radius;
+  margin-right: 100px;
+}
+
+.ssid {
+  padding: $whitespace/2;
+  border-radius: $border-radius;
+}
+
+.ssid:hover {
+  background-color: rgba($color: $base, $alpha: 0.1);
 }
 
 .battery {

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if nmcli -t -f active,ssid dev wifi | grep -q '^yes'; then
+    # Wifi
+    echo "$(nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d: -f2)"
+else
+    # Ethernet
+    echo "$(ip route get 1.1.1.1 | awk '{print $5}')"
+fi
+

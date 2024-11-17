@@ -1,0 +1,9 @@
+#!/bin/bash
+
+is_active="$(eww active-windows | grep wifi)"
+
+if [[ -z $is_active ]]; then
+  eww open wifi
+else 
+  eww close wifi
+fi
