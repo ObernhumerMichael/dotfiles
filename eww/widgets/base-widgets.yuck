@@ -19,6 +19,6 @@
               :onhoverlost "eww update ${hover-varname}=false"
     (tooltip (label :class "${class} tooltip" :text tooltip)
      (box :class class :space-evenly false :hexpand true
-      (revealer :transition "slideleft" :reveal {is-sound-hover}
+      (revealer :transition "slideleft" :reveal {hover-var}
          (metric :value value :onchange onchange)) 
       (image :path icon-path :image-height 15)))))

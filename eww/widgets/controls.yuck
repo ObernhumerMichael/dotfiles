@@ -1,7 +1,5 @@
 (defvar is-sound-hover false) 
-(defvar last-volume 30) 
-(defpoll volume :interval "1s" :initial 30 "scripts/getvol")
-
+(defpoll volume :interval "1s" :initial 30 "scripts/get-vol")
 (defwidget sound[]
  (metric-icon-revealer 
     :value {volume != "off" ? volume : 0} 
@@ -12,9 +10,17 @@
     :tooltip "${volume != "off" ? "${volume}%" : "off"}"
     :icon-path "${volume == "off" ? "img/volume_off.svg" : volume==0 ? "img/volume_mute.svg": volume >= 50 ? "img/volume_up.svg" : "img/volume_down.svg"}"))
 
+(defvar is-brightness-hover false) 
+(defpoll brightness :interval "1s" :initial 30 "scripts/get-brightness")
 (defwidget brightness[]
- (box :class "widget brightness"
-  (label :text "BRIGHTNESS")))
+ (metric-icon-revealer 
+    :value brightness 
+    :class "widget brightness"
+    :hover-var is-brightness-hover
+    :hover-varname "is-brightness-hover"
+    :onchange "brightnessctl set {}% -n 1%"
+    :tooltip brightness
+    :icon-path "${brightness < 5 ? "img/brightness_min.svg" : brightness < 45 ? "img/brightness_low.svg" : brightness < 55 ? "img/brightness-medium.svg" : "img/brightness_high.svg"}"))
 
 (defwidget wifi[]
  (box :class "widget wifi"
