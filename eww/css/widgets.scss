@@ -41,7 +41,7 @@
   background-color: $teal;
   padding: $whitespace;
   border-radius: $border-radius;
-  margin-right: 100px;
+  margin-right: $system-whitespace/2;
 }
 
 .ssid {
@@ -67,4 +67,8 @@
 
 .time:hover {
   background-color: rgba($color: $peach, $alpha: 0.9);
+}
+
+.workspace {
+  background: $mantle;
 }

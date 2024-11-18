@@ -32,16 +32,13 @@
   
  
 (defwidget container-center[]
- (box :class "container-center container" :halign "center" :spacing 5 :space-evenly false
-    (label :text "XX:XX")
-    (label :text "XX:XX")))
-  
-  
+ (box :class "container" :halign "center" :spacing 5 :space-evenly false
+    (workspaces)))
  
 (defwidget container-right[]
  (box :class "container" :halign "end" :spacing 5 :space-evenly false
     (sound)
-    (brightness)
     (network)
     (battery)
+    (brightness)
     (time)))
