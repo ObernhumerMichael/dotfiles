@@ -75,7 +75,13 @@
    (button :onclick "eww update selected-battery-state=0"
         (label :class "widget battery" :text battery-time-remaining)))))
     
- 
+(defpoll time-HM :interval "1s" "date '+%H:%M'")
+(defpoll time-large :interval "1s" "date '+%d. %b %H:%M'")
+(defvar selected-time-state 0)
 (defwidget time[]
  (box :class "widget time"
-  (label :text "TIME")))
+  (stack :selected selected-time-state :transition "crossfade" :same-size false
+   (button :onclick "eww update selected-time-state=1"
+     (label :text time-HM))
+   (button :onclick "eww update selected-time-state=0"
+     (label :text time-large)))))
