@@ -5,28 +5,28 @@
 (defwidget cpu[]
  (icon-text :icon_path "img/cpu.svg" 
     :text "${round(EWW_CPU["avg"],0)}%" 
-    :class "cpu"))
+    :class "widget cpu"))
  
 (defwidget ram[]
   (icon-text 
     :icon_path "img/ram.svg"
     :text "${round(EWW_RAM["used_mem_perc"],0)}%"
-    :class "ram"))
+    :class "widget ram"))
 
 (defwidget temperature[]
   (icon-text 
     :icon_path "img/temperature.svg"
     :text "${temperature}°C"
-    :class "temperature"))
+    :class "widget temperature"))
 
 (defwidget net-up[]
   (icon-text 
     :icon_path "img/upload.svg"
     :text "${net-speed-up}"
-    :class "net-up"))
+    :class "widget net-up"))
 
 (defwidget net-down[]
   (icon-text 
     :icon_path "img/download.svg"
     :text "${net-speed-down}"
-    :class "net-down"))
+    :class "widget net-down"))
