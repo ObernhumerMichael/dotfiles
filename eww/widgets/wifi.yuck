@@ -1,5 +1,5 @@
-(defpoll wifi-list :interval "1s" :initial "" "scripts/get-network-list")
-(defpoll is-lan-available :interval "1s" :initial false "scripts/is-ethernet-avialable")
+(defpoll wifi-list :interval "1s" :initial "" "scripts/network/get-network-list")
+(defpoll is-lan-available :interval "1s" :initial false "scripts/network/is-ethernet-avialable")
 (defpoll is-wifi-on :interval "1s" :initial false "nmcli radio wifi")
 (defwindow wifi
   :class "widget"
@@ -14,7 +14,7 @@
   (box :class "ssid-list" :orientation "vertical" :space-evenly false
     ; Dynamic SSID List
     (for wifi in wifi-list
-     (button :class "ssid" :onclick "scripts/connect-to-wifi ${wifi}"
+     (button :class "ssid" :onclick "scripts/network/connect-to-wifi ${wifi}"
       (label :text wifi :xalign 0)))
 
     ; Turn Wifi on/off
@@ -27,5 +27,5 @@
 
     ; Connect to Ethernet when available
     (revealer :reveal is-lan-available :transition "slidedown"
-      (button :class "ssid" :onclick "scripts/connect-to-ethernet" 
+      (button :class "ssid" :onclick "scripts/network/connect-to-ethernet" 
         (label :text "Ethernet" :xalign 0)))))

@@ -1,5 +1,5 @@
 ; Sound
-(defpoll volume :interval "1s" :initial 30 "scripts/get-vol")
+(defpoll volume :interval "1s" :initial 30 "scripts/system/get-vol")
 (defvar is-sound-hover false) 
 (defwidget sound[]
  (metric-icon-revealer 
@@ -16,7 +16,7 @@
 
 ; Brightness
 (defvar is-brightness-hover false) 
-(defpoll brightness :interval "1s" :initial 30 "scripts/get-brightness")
+(defpoll brightness :interval "1s" :initial 30 "scripts/system/get-brightness")
 (defwidget brightness[]
  (metric-icon-revealer 
     :value brightness 
@@ -31,11 +31,11 @@
       : "brightness_high.svg"}"))
 
 ; Network (for wifi see widgets/wifi.yuck)
-(defpoll active-network-name :interval "2s" :initial "" "scripts/get-network-name")
-(defpoll active-network-strength :interval "2s" :initial "" "scripts/get-current-network-strength")
+(defpoll active-network-name :interval "2s" :initial "" "scripts/network/get-network-name")
+(defpoll active-network-strength :interval "2s" :initial "" "scripts/network/get-current-network-strength")
 
 (defwidget network[]
-  (button :class "widget network" :onclick "scripts/toggle-wifi"
+  (button :class "widget network" :onclick "scripts/network/toggle-wifi"
    (box :space-evenly false :spacing 10
     (tooltip 
        (label :class "widget network tooltip" 
@@ -53,9 +53,9 @@
           :image-height 15)))))
 
 ; Battery
-(defpoll battery-percentage :interval "5s" :initial -1 "scripts/battery-percentage")
-(defpoll battery-state :interval "5s" :initial "" "scripts/battery-state")
-(defpoll battery-time-remaining :interval "5s" :initial "" "scripts/battery-time-remaining")
+(defpoll battery-percentage :interval "5s" :initial -1 "scripts/battery/get-percentage")
+(defpoll battery-state :interval "5s" :initial "" "scripts/battery/get-state")
+(defpoll battery-time-remaining :interval "5s" :initial "" "scripts/battery/get-remaining-time")
 (defvar selected-battery-state 0)
 (defwidget battery[]
  (box  

@@ -1,6 +1,7 @@
 (include "./widgets/base-widgets.yuck")
 (include "./widgets/system.yuck")
 (include "./widgets/controls.yuck")
+(include "./widgets/workspaces.yuck")
 (include "./widgets/wifi.yuck")
 
 (defwindow bar 
