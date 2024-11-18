@@ -1,0 +1,17 @@
+#!/bin/bash
+
+time_to_empty=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 |  # battery data
+  grep "time to empty" | # grep correct row
+  awk '{print $4 " " $5}') # grep state value
+
+time_to_full=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 |  # battery data
+  grep "time to full" | # grep correct row
+  awk '{print $4 " " $5}') # grep state value
+
+if [[ -n $time_to_empty ]]; then
+  echo $time_to_empty
+elif [[ -n $time_to_full ]]; then
+  echo $time_to_full
+else 
+  echo ""
+fi

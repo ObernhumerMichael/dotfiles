@@ -1,0 +1,8 @@
+#!/bin/bash
+
+value=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 |  # battery data
+  grep percentage | # grep correct row
+  awk '{print($2)}') # select percentage value
+cleaned_value=${value%"%"} # remove the %
+
+echo $cleaned_value

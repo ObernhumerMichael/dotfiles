@@ -38,7 +38,9 @@
     (tooltip 
        (label :class "widget network tooltip" 
           ; if there is both a name and strength it is wlan, if there is only a name it is LAN
-          :text {active-network-name != "" && active-network-strength != "" ? "${active-network-name} ${active-network-strength}%" : active-network-name != "" ? active-network-name : "not connected"})
+          :text {active-network-name != "" && active-network-strength != "" ? "${active-network-name} ${active-network-strength}%" 
+                    : active-network-name != "" ? active-network-name 
+                    : "not connected"})
        (image :path "img/network/${active-network-name != "" && active-network-strength == "" ? "lan.svg" 
           : active-network-name == "" ? "off.svg" 
           : active-network-strength < 30 ? "unusable.svg" 
@@ -48,9 +50,31 @@
           : "excellent.svg" }" 
           :image-height 15)))))
 
+(defpoll battery-percentage :interval "5s" :initial -1 "scripts/battery-percentage")
+(defpoll battery-state :interval "5s" :initial "" "scripts/battery-state")
+(defpoll battery-time-remaining :interval "5s" :initial "" "scripts/battery-time-remaining")
+(defvar selected-battery-state 0)
 (defwidget battery[]
- (box :class "widget battery"
-  (label :text "BATTERY")))
+ (box  
+  (stack :selected selected-battery-state :transition "crossfade" :same-size false
+   (button :onclick "eww update selected-battery-state=1"
+      (icon-text 
+          :icon_path "img/battery/${battery-state== "charging" ? "charging.svg" 
+            : battery-percentage > 95 ? "full.svg" 
+            : battery-percentage > 85 ? "6_bar.svg"
+            : battery-percentage > 70 ? "5_bar.svg"
+            : battery-percentage > 55 ? "4_bar.svg"
+            : battery-percentage > 40 ? "3_bar.svg"
+            : battery-percentage > 25 ? "2_bar.svg"
+            : battery-percentage > 10 ? "1_bar.svg"
+            : battery-percentage > 0 ? "0_bar.svg"
+            : "unknown.svg"
+          }" 
+          :text "${battery-percentage != "" ? "${battery-percentage}%" : ""}"
+          :class "battery"))
+   (button :onclick "eww update selected-battery-state=0"
+        (label :class "widget battery" :text battery-time-remaining)))))
+    
  
 (defwidget time[]
  (box :class "widget time"
