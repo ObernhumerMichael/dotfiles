@@ -1,12 +1,12 @@
-(deflisten workspaces :initial "[]" "bash ~/.config/eww/scripts/workspaces/get-workspaces")
-(deflisten current_workspace :initial "1" "bash ~/.config/eww/scripts/workspaces/get-active-workspace")
+(deflisten workspaces :initial "[]" "scripts/workspaces/get-workspaces")
+(deflisten current_workspace :initial "1" "scripts/workspaces/get-active-workspace")
 (defwidget workspaces []
-  (eventbox :onscroll "bash ~/.config/eww/scripts/workspaces/change-active-workspace {} ${current_workspace}" 
-    (box :class "widget workspace" :space-evenly true :spacing 10
-      (label :text "${workspaces}${current_workspace}" :visible false)
+  (eventbox :onscroll "scripts/workspaces/change-active-workspace {} ${current_workspace}" 
+    (box :class "widget" :space-evenly true :spacing 10
       (for workspace in workspaces
-        (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
-          (box :class "workspace-entry ${workspace.windows > 0 ? "occupied" : "empty"}"
-            (image :path "img/workspaces/${workspace.id == current_workspace ? "active.svg" 
-              : workspace.windows > 0 ? "occupied.svg" 
-              : "empty.svg"}")))))))
+        (eventbox 
+          :onclick "hyprctl dispatch workspace ${workspace.id}" 
+          (box :class "widget ${workspace.id == current_workspace ? "current" 
+            : workspace.windows > 0 ? "occupied" 
+            : "empty"}"
+            (label :class "workspace-content" :text "${workspace.id}")))))))
