@@ -25,3 +25,6 @@
 [submodule "bat/catppuccin"]
 	path = bat/catppuccin
 	url = https://github.com/catppuccin/bat.git
+[submodule "hypr/catppuccin"]
+	path = hypr/catppuccin
+	url = https://github.com/catppuccin/hyprland
