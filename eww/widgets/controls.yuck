@@ -7,12 +7,13 @@
     :class "widget sound"
     :hover-var is-sound-hover
     :hover-varname "is-sound-hover"
-    :onchange "amixer set Master {}%"
+    :onchange "amixer set Master on; amixer set Master {}%"
     :tooltip "${volume != "off" ? "${volume}%" : "off"}"
     :icon-path "img/volume/${volume == "off" ? "volume_off.svg" 
       : volume==0 ? "volume_mute.svg"
       : volume >= 50 ? "volume_up.svg" 
-      : "volume_down.svg"}"))
+      : "volume_down.svg"}"
+    :icon-onclick "amixer set Master toggle"))
 
 ; Brightness
 (defvar is-brightness-hover false) 

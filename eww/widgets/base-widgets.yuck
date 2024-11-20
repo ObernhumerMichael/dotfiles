@@ -13,7 +13,7 @@
            :value value
            :onchange onchange)))
 
-(defwidget metric-icon-revealer[value class hover-var hover-varname onchange tooltip icon-path]
+(defwidget metric-icon-revealer[value class hover-var hover-varname onchange tooltip icon-path ?icon-onclick]
   (eventbox :class "eventbox"
               :onhover "eww update ${hover-varname}=true"
               :onhoverlost "eww update ${hover-varname}=false"
@@ -21,4 +21,5 @@
      (box :class class :space-evenly false :hexpand true
       (revealer :transition "slideleft" :reveal {hover-var}
          (metric :value value :onchange onchange)) 
-      (image :path icon-path :image-height 15)))))
+      (button :onclick icon-onclick
+        (image :path icon-path :image-height 15))))))
