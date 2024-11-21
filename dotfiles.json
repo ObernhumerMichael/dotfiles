@@ -13,5 +13,6 @@
   "nvim": "~/.config/nvim",
   "btop/catppuccin/themes/catppuccin_mocha.theme": "~/.config/btop/themes/catppuccin_mocha.theme",
   "bat/theme.tmTheme": "~/.config/bat/themes/Catppuccin_Mocha.tmTheme",
-  "eww": "~/.config/eww"
+  "eww": "~/.config/eww",
+  "wallpapers": "~/Pictures/wallpapers"
 }
