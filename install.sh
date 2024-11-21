@@ -11,10 +11,11 @@ sudo pacman -S pipewire pipewire-alsa pipewire-pulse wireplumber alsa-utils pavu
 sudo pacman -S bluez bluez-utils blueman
 
 # System  basics
-sudo pacman -S rofi-wayland tmux openssh neovim unzip nodejs npm brightnessctl wl-clipboard net-tools bc upower socat
+sudo pacman -S rofi-wayland tmux openssh neovim unzip nodejs npm brightnessctl wl-clipboard net-tools bc upower socat swww
 
 # Usefull CLI tools
 sudo pacman -S exa bandwhich fzf bat duf zoxide entr ripgrep tldr
+paru -S pyprland 
 
 # Install eww with an AUR helper (preferred)
 paru -S git-eww
@@ -27,9 +28,6 @@ paru -S git-eww
 # cd target/release
 # chmod +x ./eww
 
-# System utils
-paru -S pyprland 
-sudo pacman -S swww
 
 # Enable Services
 sudo stystemctl enable sddm.service

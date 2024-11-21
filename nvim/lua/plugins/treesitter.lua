@@ -21,6 +21,7 @@ return {
         "bash",
         "dart",
         "yuck",
+        "rasi",
       },
     },
   },
