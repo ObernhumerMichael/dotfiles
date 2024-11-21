@@ -26,6 +26,8 @@ paru -S git-eww
 # cargo build --release --no-default-features --features=wayland
 # cd target/release
 # chmod +x ./eww
+#
+paru -S pyprland
 
 # Enable Services
 sudo stystemctl enable sddm.service

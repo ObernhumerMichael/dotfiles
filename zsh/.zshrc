@@ -13,7 +13,7 @@ export ZSH="$HOME/.oh-my-zsh"
 zstyle ':omz:update' mode auto      # update automatically without asking
 ZSH_THEME="powerlevel10k/powerlevel10k"
 zstyle ':omz:update' frequency 7
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 HIST_STAMPS="dd.mm.yyyy"
 
 # Uncomment the following line if pasting URLs and other text is messed up.
