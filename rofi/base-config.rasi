@@ -9,6 +9,5 @@ configuration {
     drun-display-format:         "{name}";
     window-format:               "{w}{t}";
     font:                        "JetBrainsMono Nerd Font 10";
+    hover-select: true;
 }
-
-@theme "./theme.rasi"

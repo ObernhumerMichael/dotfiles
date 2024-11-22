@@ -3,7 +3,7 @@
 (defpoll is-wifi-on :interval "1s" :initial false "nmcli radio wifi")
 (defwindow wifi
   :class "widget"
-  :monitor 0
+  :monitor '["<primary>", "HDMI-A-1", 0]'
   :geometry (geometry :width "15%"
                       :height "30px"
                       :y "10px"

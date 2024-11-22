@@ -1,9 +1,10 @@
-@import "./colorscheme.rasi"
+@import "../base-config.rasi"
+@theme"../colorscheme.rasi"
 
 // Main //
 window {
-    height:                      33em;
-    width:                       63em;
+    height:                      35em;
+    width:                       56em;
     transparency:                "real";
     fullscreen:                  false;
     enabled:                     true;
@@ -11,118 +12,106 @@ window {
     spacing:                     0em;
     padding:                     0em;
     border:                      @border-size;
-    border-radius:               @border-radius;
     border-color:                @mauve;
+    border-radius:               @border-radius;
     background-color:            @base;
 }
-
 mainbox {
     enabled:                     true;
     spacing:                     0em;
     padding:                     0em;
-    orientation:                 horizontal;
-    children:                    [ "dummywall" , "listbox" ];
-    background-color:            transparent;
-}
-
-dummywall {
-    spacing:                     0em;
-    padding:                     0em;
-    width:                       37em;
-    expand:                      false;
-    orientation:                 horizontal;
-    children:                    [ "mode-switcher" , "inputbar" ];
-    background-color:            transparent;
-    background-image:            url("~/Pictures/wallpapers/catppuccin/gradients/magenta_blue.png", height);
-    background-position: center; 
-}
-
-
-// Modes //
-mode-switcher{
     orientation:                 vertical;
-    enabled:                     true;
-    width:                       3.8em;
-    padding:                     9.2em 0.5em 9.2em 0.5em;
-    spacing:                     1.2em;
-    background-color:            @base;
+    children:                    [ "inputbar" , "listbox" ];
+    background-color:            transparent;
+    background-image:            url("~/Pictures/wallpapers/catppuccin/misc/comfy-home.png", width);
 }
 
-button {
-    cursor:                      pointer;
-    border-radius:               2em;
-    background-color:            @base;
-    text-color:                  @text;
-}
-
-button selected {
-    background-color:            @mauve;
-    text-color:                  @base;
-}
 
 // Inputs //
 inputbar {
     enabled:                     true;
+    spacing:                     0em;
+    padding:                     5em;
     children:                    [ "entry" ];
     background-color:            transparent;
 }
 entry {
-    enabled:                     false;
+    border-radius:               2em;
+    enabled:                     true;
+    spacing:                     1em;
+    padding:                     1em;
+    text-color:                  @text;
+    background-color:            @transparent-base;
 }
 
 
 // Lists //
 listbox {
-    spacing:                     0em;
-    padding:                     2em;
-    children:                    [ "dummy" , "listview" , "dummy" ];
-    background-color:            @base;
-}
-
-listview {
-    enabled:                     true;
-    spacing:                     0em;
     padding:                     0em;
-    columns:                     1;
-    lines:                       8;
+    spacing:                     0em;
+    orientation:                 horizontal;
+    children:                    [ "listview" , "mode-switcher" ];
+    background-color:            @transparent-base;
+}
+listview {
+    padding:                     1.5em;
+    spacing:                     0.5em;
+    enabled:                     true;
+    columns:                     2;
+    lines:                       3;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
     layout:                      vertical;
     reverse:                     false;
-    expand:                      false;
     fixed-height:                true;
     fixed-columns:               true;
     cursor:                      "default";
     background-color:            transparent;
     text-color:                  @text;
 }
-dummy {
+
+
+// Modes //
+mode-switcher {
+    orientation:                 vertical;
+    width:                       6.6em;
+    enabled:                     true;
+    padding:                     1.5em;
+    spacing:                     1.5em;
     background-color:            transparent;
 }
+button {
+    cursor:                      pointer;
+    border-radius:               2em;
+    background-color:            @overlay0;
+    text-color:                  @text;
+}
+button selected {
+    background-color:            @mauve;
+    text-color:                  @base;
+}
+
 
 // Elements //
 element {
     enabled:                     true;
-    spacing:                     0.8em;
-    padding:                     0.4em 0.4em 0.4em 1.5em;
+    spacing:                     1em;
+    padding:                     0.5em;
     cursor:                      pointer;
     background-color:            transparent;
     text-color:                  @text;
 }
-
 element selected.normal {
     background-color:            @overlay0;
     text-color:                  @text;
 }
-
 element-icon {
-    size:                        2.8em;
+    size:                        3em;
     cursor:                      inherit;
     background-color:            transparent;
     text-color:                  inherit;
 }
-
 element-text {
     vertical-align:              0.5;
     horizontal-align:            0.0;
@@ -131,10 +120,9 @@ element-text {
     text-color:                  inherit;
 }
 
-
 // Error message //
 error-message {
-    text-color:                  @text;
+    text-color:                  @red;
     background-color:            @base;
     text-transform:              capitalize;
     children:                    [ "textbox" ];
