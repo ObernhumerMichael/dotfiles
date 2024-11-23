@@ -1,19 +1,5 @@
-@import "css/colorscheme-catppuccin-mocha.scss";
+@import "common/colorscheme-catppuccin-mocha.scss";
+@import "common/general.scss";
 
-$whitespace: 10px;
-$system-whitespace: 20px;
-$border-radius: 5px;
-
-// Reset everything
-
-* {
-  all: unset;
-  color: $base;
-  font-family: system-ui;
-  font-weight: 500;
-  font-size: 15;
-}
-
-@import "css/general.scss";
-
-@import "css/widgets.scss";
+@import "bar/bar.scss";
+@import "network/network.scss";

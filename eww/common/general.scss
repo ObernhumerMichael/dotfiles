@@ -1,8 +1,15 @@
-// Layout
+$whitespace: 10px;
+$system-whitespace: 20px;
+$border-radius: 5px;
 
-.layout {
-  margin-left: $system-whitespace;
-  margin-right: $system-whitespace;
+// Reset everything
+
+* {
+  all: unset;
+  color: $base;
+  font-family: system-ui;
+  font-weight: 500;
+  font-size: 15;
 }
 
 // Base styles

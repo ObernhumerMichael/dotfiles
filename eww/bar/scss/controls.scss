@@ -1,0 +1,32 @@
+// Control widgets
+
+.sound {
+  background-color: $sky;
+}
+
+.brightness {
+  background-color: $yellow;
+}
+
+.network {
+  background-color: $teal;
+}
+.network:hover {
+  background-color: rgba($color: $teal, $alpha: 0.9);
+}
+
+.battery {
+  background-color: $green;
+}
+
+.battery:hover {
+  background-color: rgba($color: $green, $alpha: 0.9);
+}
+
+.time {
+  background-color: $peach;
+}
+
+.time:hover {
+  background-color: rgba($color: $peach, $alpha: 0.9);
+}

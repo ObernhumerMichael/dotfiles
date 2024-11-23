@@ -9,7 +9,7 @@
     :hover-varname "is-sound-hover"
     :onchange "amixer set Master on; amixer set Master {}%"
     :tooltip "${volume != "off" ? "${volume}%" : "off"}"
-    :icon-path "img/volume/${volume == "off" ? "volume_off.svg" 
+    :icon-path "bar/img/volume/${volume == "off" ? "volume_off.svg" 
       : volume==0 ? "volume_mute.svg"
       : volume >= 50 ? "volume_up.svg" 
       : "volume_down.svg"}"
@@ -26,7 +26,7 @@
     :hover-varname "is-brightness-hover"
     :onchange "brightnessctl set {}% -n 1%"
     :tooltip "${brightness}%"
-    :icon-path "img/brightness/${brightness < 5 ? "brightness_min.svg" 
+    :icon-path "bar/img/brightness/${brightness < 5 ? "brightness_min.svg" 
       : brightness < 45 ? "brightness_low.svg" 
       : brightness < 55 ? "brightness-medium.svg" 
       : "brightness_high.svg"}"))
@@ -36,7 +36,7 @@
 (defpoll active-network-strength :interval "2s" :initial "" "scripts/network/get-current-network-strength")
 
 (defwidget network[]
-  (button :class "widget network" :onclick "scripts/network/toggle-wifi"
+  (button :class "widget network" :onclick "scripts/network/toggle-network"
    (box :space-evenly false :spacing 10
     (tooltip 
        (label :class "widget network tooltip" 
@@ -44,7 +44,7 @@
           :text {active-network-name != "" && active-network-strength != "" ? "${active-network-name} ${active-network-strength}%" 
                     : active-network-name != "" ? active-network-name 
                     : "not connected"})
-       (image :path "img/network/${active-network-name != "" && active-network-strength == "" ? "lan.svg" 
+       (image :path "bar/img/network/${active-network-name != "" && active-network-strength == "" ? "lan.svg" 
           : active-network-name == "" ? "off.svg" 
           : active-network-strength < 30 ? "unusable.svg" 
           : active-network-strength < 50 ? "weak.svg" 
@@ -63,7 +63,7 @@
   (stack :selected selected-battery-state :transition "none" :same-size false
    (button :class "widget battery" :onclick "eww update selected-battery-state=1"
       (icon-text 
-          :icon_path "img/battery/${battery-state== "charging" ? "charging.svg" 
+          :icon_path "bar/img/battery/${battery-state== "charging" ? "charging.svg" 
             : battery-percentage > 95 ? "full.svg" 
             : battery-percentage > 85 ? "6_bar.svg"
             : battery-percentage > 70 ? "5_bar.svg"
@@ -78,7 +78,7 @@
           :class ""))
    (button :class "widget battery" :onclick "eww update selected-battery-state=0"
       (icon-text 
-          :icon_path "img/battery/${battery-state== "charging" ? "charging.svg" 
+          :icon_path "bar/img/battery/${battery-state== "charging" ? "charging.svg" 
             : battery-percentage > 95 ? "full.svg" 
             : battery-percentage > 85 ? "6_bar.svg"
             : battery-percentage > 70 ? "5_bar.svg"

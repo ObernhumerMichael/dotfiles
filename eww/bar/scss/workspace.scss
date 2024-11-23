@@ -1,0 +1,19 @@
+.workspace-content {
+  color: $text;
+}
+
+.current {
+  background: $mauve;
+}
+
+.current > .workspace-content {
+  color: $base;
+}
+
+.occupied {
+  background: $overlay0;
+}
+
+.empty {
+  background: $surface0;
+}

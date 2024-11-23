@@ -3,30 +3,30 @@
 (defpoll net-speed-up :interval "1s" "scripts/network/get-net-speed-up")
 
 (defwidget cpu[]
- (icon-text :icon_path "img/system/cpu.svg" 
+ (icon-text :icon_path "bar/img/system/cpu.svg" 
     :text "${round(EWW_CPU["avg"],0)}%" 
     :class "widget cpu"))
  
 (defwidget ram[]
   (icon-text 
-    :icon_path "img/system/ram.svg"
+    :icon_path "bar/img/system/ram.svg"
     :text "${round(EWW_RAM["used_mem_perc"],0)}%"
     :class "widget ram"))
 
 (defwidget temperature[]
   (icon-text 
-    :icon_path "img/system/temperature.svg"
+    :icon_path "bar/img/system/temperature.svg"
     :text "${temperature}°C"
     :class "widget temperature"))
 
 (defwidget net-up[]
   (icon-text 
-    :icon_path "img/network/upload.svg"
+    :icon_path "bar/img/network/upload.svg"
     :text "${net-speed-up}"
     :class "widget net-up"))
 
 (defwidget net-down[]
   (icon-text 
-    :icon_path "img/network/download.svg"
+    :icon_path "bar/img/network/download.svg"
     :text "${net-speed-down}"
     :class "widget net-down"))

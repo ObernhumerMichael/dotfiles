@@ -1,8 +1,3 @@
-(include "./widgets/base-widgets.yuck")
-(include "./widgets/system.yuck")
-(include "./widgets/controls.yuck")
-(include "./widgets/workspaces.yuck")
-
-(include "./windows/bar.yuck")
-(include "./windows/wifi.yuck")
-
+(include "./common/base-widgets.yuck")
+(include "./bar/bar.yuck")
+(include "./network/network.yuck")

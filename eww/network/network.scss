@@ -1,0 +1,15 @@
+.ssid-list {
+  background-color: $teal;
+  padding: $whitespace;
+  border-radius: $border-radius;
+  margin-right: $system-whitespace/2;
+}
+
+.ssid {
+  padding: $whitespace/2;
+  border-radius: $border-radius;
+}
+
+.ssid:hover {
+  background-color: rgba($color: $base, $alpha: 0.1);
+}

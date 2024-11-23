@@ -1,3 +1,7 @@
+(include "./bar/widgets/system.yuck")
+(include "./bar/widgets/controls.yuck")
+(include "./bar/widgets/workspaces.yuck")
+
 (defwindow bar 
   :monitor '["<primary>", "HDMI-A-1", 0]'
   :geometry (geometry :width "100%"
@@ -36,3 +40,4 @@
     (battery)
     (brightness)
     (time)))
+
