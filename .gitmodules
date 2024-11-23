@@ -31,3 +31,6 @@
 [submodule "wallpapers/catppuccin"]
 	path = wallpapers/catppuccin
 	url = https://github.com/zhichaoh/catppuccin-wallpapers
+[submodule "hypr/hyprlock-catppuccin"]
+	path = hypr/hyprlock-catppuccin
+	url = https://github.com/catppuccin/hyprlock

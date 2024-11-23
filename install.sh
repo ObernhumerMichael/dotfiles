@@ -2,7 +2,7 @@ mkdir ~/Applications
 cd ~/Applications
 
 # Basics Hyprland 
-sudo pacman -S zsh hyprland ttf-jetbrains-mono-nerd sddm swaync xdg-desktop-portal-hyprland qt5-wayland qt6-wayland git base-devel 
+sudo pacman -S zsh hyprland ttf-jetbrains-mono-nerd sddm swaync xdg-desktop-portal-hyprland qt5-wayland qt6-wayland git base-devel hyprlock
 
 # Audio related essentails
 sudo pacman -S pipewire pipewire-alsa pipewire-pulse wireplumber alsa-utils pavucontrol alsa-firmware sof-firmware
