@@ -52,7 +52,7 @@ mode-switcher{
 button {
     cursor:                      pointer;
     border-radius:               2em;
-    background-color:            @overlay0;
+    background-color:            transparent;
     text-color:                  @text;
 }
 
