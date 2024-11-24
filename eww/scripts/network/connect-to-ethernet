@@ -3,4 +3,5 @@
 interface=$(nmcli device status | grep ethernet | grep connected | awk '{print($1)}')
 nmcli device connect $interface &
 
-eww close wifi
+eww close network-selector
+eww close network-selector-closer

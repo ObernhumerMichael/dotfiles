@@ -36,7 +36,7 @@
 (defpoll active-network-strength :interval "2s" :initial "" "scripts/network/get-current-network-strength")
 
 (defwidget network[]
-  (button :class "widget network" :onclick "scripts/network/toggle-network"
+  (button :class "widget network" :onclick "eww open-many --toggle network-selector network-selector-closer"
    (box :space-evenly false :spacing 10
     (tooltip 
        (label :class "widget network tooltip" 
