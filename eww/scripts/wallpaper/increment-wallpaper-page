@@ -1,0 +1,6 @@
+#!/bin/bash
+
+temp_path="/tmp/wallpaper-page-number"
+
+file_number=$(cat $temp_path)
+echo $((file_number + 1)) > $temp_path

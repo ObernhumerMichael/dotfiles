@@ -1,0 +1,9 @@
+#!/bin/bash
+
+temp_path="/tmp/wallpaper-page-number"
+
+file_number=$(cat $temp_path)
+if [[ $file_number > 1 ]]; then
+  echo $((file_number - 1)) > $temp_path
+fi
+

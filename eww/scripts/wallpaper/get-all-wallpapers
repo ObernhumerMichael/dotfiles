@@ -1,5 +1,40 @@
 #!/bin/bash
 
-wallpapers="$HOME/Pictures/wallpapers"
+page_size=3
+page_number=1
+temp_path="/tmp/wallpaper-page-number"
+echo 1 > $temp_path
 
-find -L $wallpapers -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" -o -iname "*.pnm" -o -iname "*.tga" -o -iname "*.tiff" -o -iname "*.webp" -o -iname "*.bmp" -o -iname "*.farbfeld" \)
+images () {
+  let selection=$page_size*$page_number
+
+  wallpapers="$HOME/Pictures/wallpapers"
+
+  # Find the image files and format them as a JSON array
+  find -L "$wallpapers" -type f \( \
+      -iname "*.jpg" -o \
+      -iname "*.jpeg" -o \
+      -iname "*.png" -o \
+      -iname "*.gif" -o \
+      -iname "*.pnm" -o \
+      -iname "*.tga" -o \
+      -iname "*.tiff" -o \
+      -iname "*.webp" -o \
+      -iname "*.bmp" -o \
+      -iname "*.farbfeld" \
+  \) | 
+  head -n $selection | 
+  tail -n $page_size | 
+  jq -Rsc 'split("\n") | map(select(length > 0))'
+}
+
+images
+
+while [[ true ]]; do
+  sleep 0.2
+  file_number=$(cat $temp_path)
+  if [[ $page_number -ne $file_number ]]; then
+    page_number=$file_number
+    images
+  fi
+done

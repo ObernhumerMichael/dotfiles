@@ -1,6 +1,8 @@
 .wallpaper-stripe {
   background-color: rgba($color: $crust, $alpha: 0.5);
-  padding: 3em;
+  padding: 30px;
+  padding-left: 60px;
+  padding-right: 60px;
 }
 
 .thumbnail {
@@ -8,13 +10,32 @@
 }
 
 .thumbnail:hover {
-  box-shadow: 0 0 0 $border-size $mauve; /* Create border effect */
+  box-shadow: 0 0 0 $border-size $mauve;
+}
+
+.thumbnail:focus {
+  box-shadow: 0 0 0 $border-size $mauve;
 }
 
 .thumbnail-image {
   border-radius: $border-radius * 5;
 
   background-size: cover; // Scales the image to cover the entire element
-  background-position: center; // Centers the image
-  background-repeat: no-repeat; // Prevents tiling of the image
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.wallpaper-button {
+  padding: 30px;
+  border-radius: 1000px;
+}
+
+.wallpaper-button:hover {
+  background-color: $base;
+  box-shadow: 0 0 0 $border-size $mauve;
+}
+
+.wallpaper-button:focus {
+  background-color: $base;
+  box-shadow: 0 0 0 $border-size $mauve;
 }
