@@ -15,16 +15,21 @@
   :exclusive false
   :namespace "wallpaper-selector"
   :focusable true
-  (box :orientation "horizontal" :class "wallpaper-stripe" :space-evenly false :spacing 40 
-    (wallpaper-button 
-      :path "wallpaper/img/before.svg" 
-      :onclick "scripts/wallpaper/decrement-wallpaper-page")
-    (box :orientation "horizontal" :space-evenly true :spacing 40 :hexpand true :vexpand true 
-      (for wallpaper in wallpapers
-        (thumbnail :path wallpaper)))
-    (wallpaper-button 
-      :path "wallpaper/img/next.svg" 
-      :onclick "scripts/wallpaper/increment-wallpaper-page")))
+  (box :orientation "vertical" :class "wallpaper-stripe" :space-evenly false :spacing 40 
+    (box :orientation "horizontal" :space-evenly true
+        (box)
+        (input :class "wallpaper-filter" :onchange "echo {} > /tmp/wallpaper-filter")
+        (box))
+    (box :orientation "horizontal" :space-evenly false :spacing 40 :vexpand true 
+      (wallpaper-button 
+        :path "wallpaper/img/before.svg" 
+        :onclick "scripts/wallpaper/decrement-wallpaper-page")
+      (box :orientation "horizontal" :space-evenly true :spacing 40 :hexpand true :vexpand true 
+        (for wallpaper in wallpapers
+          (thumbnail :path wallpaper)))
+      (wallpaper-button 
+        :path "wallpaper/img/next.svg" 
+        :onclick "scripts/wallpaper/increment-wallpaper-page"))))
 
 (defwidget thumbnail [path]
   (button :class "thumbnail" :active true :onclick "scripts/wallpaper/select-wallpaper ${path}"

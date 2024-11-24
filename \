@@ -44,8 +44,10 @@ while [[ true ]]; do
   fi
 
   new_filter=$(cat $filter_path)
-  if [[ $filter != $new_filter ]]; then
+  echo "=$filter="
+  echo "=$new_filter="
+  if [[ $filter == $new_filter ]]; then
     filter=$new_filter
-    images
+    # images
   fi
 done

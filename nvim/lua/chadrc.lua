@@ -12,7 +12,7 @@ M.term = {
 }
 M.base46 = {
   theme = "catppuccin",
-  transparency = true,
+  transparency = false,
 
   -- hl_override = {
   -- 	Comment = { italic = true },
