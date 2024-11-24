@@ -1,0 +1,19 @@
+(defwindow wallpaper
+  ;:monitor '["<primary>", "HDMI-A-1", 0]'
+  :monitor 0
+  :geometry (geometry :width "100%"
+                      :height "66%"
+                      :anchor "center")
+  :stacking "overlay"
+  :exclusive false
+  :namespace "wallpaper-selector"
+  (box :class "wallpaper-stripe" :orientation "horizontal" :space-evenly false
+    (thumbnail :path "wallpaper/example/comfy-home.png" :text "TEST")))
+
+
+(defwidget thumbnail [path text]
+  (button :class "thumbnail"
+    (box :class "thumbnail-image" 
+      :width 400  
+      :vexpand true 
+      :style "background-image: url('${path}');")))

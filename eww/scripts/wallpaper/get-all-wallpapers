@@ -1,0 +1,5 @@
+#!/bin/bash
+
+wallpapers="$HOME/Pictures/wallpapers"
+
+find -L $wallpapers -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" -o -iname "*.pnm" -o -iname "*.tga" -o -iname "*.tiff" -o -iname "*.webp" -o -iname "*.bmp" -o -iname "*.farbfeld" \)

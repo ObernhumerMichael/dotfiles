@@ -9,7 +9,6 @@
                       :y "10px"
                       :anchor "top right")
   :stacking "overlay"
-  :windowtype "dock"
   :exclusive false
   (box :class "ssid-list" :orientation "vertical" :space-evenly false
     ; Dynamic SSID List

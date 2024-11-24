@@ -1,0 +1,20 @@
+.wallpaper-stripe {
+  background-color: rgba($color: $crust, $alpha: 0.5);
+  padding: 3em;
+}
+
+.thumbnail {
+  border-radius: $border-radius * 5;
+}
+
+.thumbnail:hover {
+  box-shadow: 0 0 0 $border-size $mauve; /* Create border effect */
+}
+
+.thumbnail-image {
+  border-radius: $border-radius * 5;
+
+  background-size: cover; // Scales the image to cover the entire element
+  background-position: center; // Centers the image
+  background-repeat: no-repeat; // Prevents tiling of the image
+}

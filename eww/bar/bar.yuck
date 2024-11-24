@@ -9,7 +9,6 @@
                       :y "5px"
                       :anchor "top center")
   :stacking "fg"
-  :windowtype "dock"
   :exclusive true
   (layout))
 
