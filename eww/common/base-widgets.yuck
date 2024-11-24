@@ -23,3 +23,6 @@
          (metric :value value :onchange onchange)) 
       (button :onclick icon-onclick
         (image :path icon-path :image-height 15))))))
+
+(defwidget closer [window]
+  (eventbox :class "temp" :onclick "eww close ${window}; eww close ${window}-closer"))

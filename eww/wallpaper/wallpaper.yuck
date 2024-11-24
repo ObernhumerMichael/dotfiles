@@ -1,5 +1,12 @@
 (deflisten wallpapers "scripts/wallpaper/get-all-wallpapers")
 
+(defwindow wallpaper-selector-closer
+  :monitor 0
+  :geometry (geometry :width "100%" :height "100%")
+  :stacking "fg"
+  :focusable false
+  (closer :window "wallpaper-selector"))
+
 (defwindow wallpaper-selector
   :geometry (geometry :width "100%"
                       :height "66%"
@@ -8,20 +15,11 @@
   :exclusive false
   :namespace "wallpaper-selector"
   :focusable true
-  (box 
-    :orientation "horizontal"
-    :class "wallpaper-stripe" 
-    :space-evenly false 
-    :spacing 40 
+  (box :orientation "horizontal" :class "wallpaper-stripe" :space-evenly false :spacing 40 
     (wallpaper-button 
       :path "wallpaper/img/before.svg" 
       :onclick "scripts/wallpaper/decrement-wallpaper-page")
-    (box
-      :orientation "horizontal"
-      :space-evenly true
-      :spacing 40 
-      :hexpand true
-      :vexpand true 
+    (box :orientation "horizontal" :space-evenly true :spacing 40 :hexpand true :vexpand true 
       (for wallpaper in wallpapers
         (thumbnail :path wallpaper)))
     (wallpaper-button 
