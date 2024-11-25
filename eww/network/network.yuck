@@ -3,7 +3,7 @@
 (defpoll is-wifi-on :interval "1s" :initial false "nmcli radio wifi")
 
 (defwindow network-selector-closer
-  :monitor 0
+  :monitor '["<primary>", "HDMI-A-1", 0]'
   :geometry (geometry :width "100%" :height "100%")
   :stacking "fg"
   :focusable false
