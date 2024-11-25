@@ -28,6 +28,7 @@ Run `bat cache --build` to rebuild bats cache and activate its theme.
   - [bat](https://github.com/catppuccin/bat)
   - [btop](https://github.com/catppuccin/btop)
   - [hyprland colors](https://github.com/catppuccin/hyprland)
+  - [hyprlock](https://github.com/catppuccin/hyprlock)
   - [kitty](https://github.com/catppuccin/kitty)
   - [tmux](https://github.com/catppuccin/tmux)
 - Rofi: I stole most of the rofi layouts from [prasanthrangan/hyprdots](https://github.com/prasanthrangan/hyprdots). Thank you!
