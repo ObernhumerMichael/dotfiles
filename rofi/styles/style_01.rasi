@@ -34,7 +34,7 @@ dummywall {
     orientation:                 horizontal;
     children:                    [ "mode-switcher" , "inputbar" ];
     background-color:            transparent;
-    background-image:            url("~/Pictures/wallpapers/catppuccin/misc/comfy-home.png", height);
+    background-image:            url("~/.cache/wallpaper-selector/rofi", height);
     background-position: center; 
 }
 

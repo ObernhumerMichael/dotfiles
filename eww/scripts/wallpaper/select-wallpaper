@@ -1,7 +1,14 @@
 #!/bin/bash
 
 monitor=$(hyprctl -j monitors | jq -r '.[] | select(.focused == true).name')
+
+# Set the new image
 swww img -t outer --transition-step 150 --transition-fps 150 $1 --outputs $monitor
+
+# update the cache
+mkdir -p ~/.cache/wallpaper-selector
+ln -sf $1 ~/.cache/wallpaper-selector/$monitor
+
 eww close wallpaper-selector
 eww close wallpaper-selector-closer
 
