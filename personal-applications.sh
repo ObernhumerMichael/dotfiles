@@ -18,5 +18,5 @@ sourc ./.venv/bin/activate
 freqtrade create-userdir --userdir user_data
 
 
-# Gparted
 sudo pacman -S gparted
+sudo pacman -S rsync
