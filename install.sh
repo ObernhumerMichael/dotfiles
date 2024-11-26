@@ -2,7 +2,7 @@ mkdir ~/Applications
 cd ~/Applications
 
 # Basics Hyprland 
-sudo pacman -S zsh hyprland ttf-jetbrains-mono-nerd sddm swaync xdg-desktop-portal-hyprland qt5-wayland qt6-wayland git base-devel hyprlock
+sudo pacman -S zsh hyprland ttf-jetbrains-mono-nerd sddm swaync xdg-desktop-portal-hyprland qt5-wayland qt6-wayland git base-devel hyprlock polkit polkit-kde-agent xorg-xhost
 
 # Audio related essentails
 sudo pacman -S pipewire pipewire-alsa pipewire-pulse wireplumber alsa-utils pavucontrol alsa-firmware sof-firmware
@@ -10,8 +10,8 @@ sudo pacman -S pipewire pipewire-alsa pipewire-pulse wireplumber alsa-utils pavu
 # Bluetooth related essentails
 sudo pacman -S bluez bluez-utils blueman
 
-# System  basics
-sudo pacman -S rofi-wayland tmux openssh neovim unzip nodejs npm brightnessctl wl-clipboard net-tools bc upower socat swww
+# System basics
+sudo pacman -S rofi-wayland tmux openssh neovim unzip nodejs npm brightnessctl wl-clipboard net-tools bc upower socat swww 
 
 # Usefull CLI tools
 sudo pacman -S exa bandwhich fzf bat duf zoxide entr ripgrep tldr

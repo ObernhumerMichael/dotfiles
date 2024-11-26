@@ -16,3 +16,7 @@ git checkout stable Freqtrade
 # Freqtrade setup
 sourc ./.venv/bin/activate
 freqtrade create-userdir --userdir user_data
+
+
+# Gparted
+sudo pacman -S gparted
