@@ -1,21 +1,17 @@
 #!/bin/bash
 
-page_size=3
+page_size=4
 page_number=1
-page_path="/tmp/wallpaper-page-number"
-filter_path="/tmp/wallpaper-filter"
-filter=""
+wallpapers_path="$HOME/Pictures/wallpapers"
+wallpaper_data_path='/tmp/wallpaper-data.json'
+wallpaper_tmp_path='/tmp/wallpaper-temp.json'
 
-# create temp files
-echo 1 > $page_path
-echo "" > $filter_path
+# write default wallpaper_data
+jq -n '{page_nr: 1, max_page_nr: 1, filter: ""}' > $wallpaper_data_path
 
-  # Find the image files and format them as a JSON array
 images () {
-  let selection=$page_size*$page_number
-  wallpapers="$HOME/Pictures/wallpapers"
-
-  find -L "$wallpapers" -type f \( \
+  # Find all wanted images
+  wallpapers=$(find -L "$wallpapers_path" -type f \( \
       -iname "*.jpg" -o \
       -iname "*.jpeg" -o \
       -iname "*.png" -o \
@@ -26,8 +22,16 @@ images () {
       -iname "*.webp" -o \
       -iname "*.bmp" -o \
       -iname "*.farbfeld" \
-  \) | 
-  grep "$filter" | 
+  \) | grep "$filter") 
+
+  # update max_page_nr
+  nr_wallpapers=$( echo "$wallpapers" | wc -l)
+  max_page_nr=$(( (nr_wallpapers + page_size -1) / page_size )) # makes sure that decimals get rouned up
+  jq ".max_page_nr=$max_page_nr" $wallpaper_data_path > $wallpaper_tmp_path && mv $wallpaper_tmp_path $wallpaper_data_path
+
+  # get the current page
+  let selection=$page_size*$page_number
+  echo "$wallpapers" |
   head -n $selection | 
   tail -n $page_size | 
   jq -Rsc 'split("\n") | map(select(length > 0))'
@@ -37,13 +41,13 @@ images
 
 while [[ true ]]; do
   sleep 0.2
-  file_number=$(cat $page_path)
+  file_number=$(jq -r '.page_nr' $wallpaper_data_path )
   if [[ $page_number -ne $file_number ]]; then
     page_number=$file_number
     images
   fi
 
-  new_filter=$(cat $filter_path)
+  new_filter=$(jq -r '.filter' $wallpaper_data_path)
   if [[ $filter != $new_filter ]]; then
     filter=$new_filter
     images

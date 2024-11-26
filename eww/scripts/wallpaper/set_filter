@@ -1,0 +1,8 @@
+#!/bin/bash
+
+filter="\"$1\""
+
+wallpaper_data_path='/tmp/wallpaper-data.json'
+wallpaper_tmp_path='/tmp/wallpaper-temp.json'
+
+jq ".filter=$filter | .page_nr=1" $wallpaper_data_path > $wallpaper_tmp_path && mv $wallpaper_tmp_path $wallpaper_data_path

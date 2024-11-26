@@ -18,7 +18,7 @@
   (box :orientation "vertical" :class "wallpaper-stripe" :space-evenly false :spacing 40 
     (box :orientation "horizontal" :space-evenly true
         (box)
-        (input :class "wallpaper-filter" :onchange "echo {} > /tmp/wallpaper-filter")
+        (input :class "wallpaper-filter" :onchange "scripts/wallpaper/set_filter {}")
         (box))
     (box :orientation "horizontal" :space-evenly false :spacing 40 :vexpand true 
       (wallpaper-button 

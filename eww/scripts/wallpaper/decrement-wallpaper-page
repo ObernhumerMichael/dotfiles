@@ -1,9 +1,13 @@
 #!/bin/bash
 
-temp_path="/tmp/wallpaper-page-number"
+wallpaper_data_path='/tmp/wallpaper-data.json'
+wallpaper_tmp_path='/tmp/wallpaper-temp.json'
 
-file_number=$(cat $temp_path)
-if [[ $file_number > 1 ]]; then
-  echo $((file_number - 1)) > $temp_path
+page_nr=$(jq -r '.page_nr' $wallpaper_data_path )
+max_page_nr=$(jq -r '.max_page_nr' $wallpaper_data_path )
+
+if [[ $page_nr > 1 ]]; then
+  jq ".page_nr=$((page_nr - 1))" $wallpaper_data_path > $wallpaper_tmp_path && mv $wallpaper_tmp_path $wallpaper_data_path
+else 
+  jq ".page_nr=$max_page_nr" $wallpaper_data_path > $wallpaper_tmp_path && mv $wallpaper_tmp_path $wallpaper_data_path
 fi
-
