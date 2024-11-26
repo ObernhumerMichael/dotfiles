@@ -15,5 +15,6 @@
   "bat/theme.tmTheme": "~/.config/bat/themes/Catppuccin_Mocha.tmTheme",
   "eww": "~/.config/eww",
   "wallpapers": "~/Pictures/wallpapers",
-  "rofi": "~/.config/rofi"
+  "rofi": "~/.config/rofi",
+  "grub/catppuccin/src/catppuccin-mocha-grub-theme": "/usr/share/grub/themes/catppuccin-mocha-grub-theme"
 }

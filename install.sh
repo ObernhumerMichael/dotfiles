@@ -1,3 +1,5 @@
+#!/bin/bash
+
 mkdir ~/Applications
 cd ~/Applications
 
@@ -36,5 +38,13 @@ sudo systemctl start bluetooth
 
 # Install Oh My ZSH
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+echo "Create symlinks from the repo to the required destinations:"
+./symlink-dotfiles.sh
+echo "Created symlinks.\n"
+
+echo "Configure applications:"
+./configure-applications.sh
+echo "Configured applications. \n"
 
 echo If you are using Nvidia please check out the official hyprland docs on how to use Nvidia!

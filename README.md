@@ -31,4 +31,5 @@ Run `bat cache --build` to rebuild bats cache and activate its theme.
   - [hyprlock](https://github.com/catppuccin/hyprlock)
   - [kitty](https://github.com/catppuccin/kitty)
   - [tmux](https://github.com/catppuccin/tmux)
+  - [grub](https://github.com/catppuccin/grub)
 - Rofi: I stole most of the rofi layouts from [prasanthrangan/hyprdots](https://github.com/prasanthrangan/hyprdots). Thank you!

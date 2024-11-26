@@ -34,16 +34,19 @@ if [[ -f "$CONFIG_FILE" ]]; then
         echo "$(dirname "$dest")"
         mkdir -p "$(dirname "$dest")"
 
-        # Check if the source is a directory
-        if [[ -d "$DOTFILES_DIR/$src" ]]; then
-            # Create a symlink for the entire directory
-            ln -s "$DOTFILES_DIR/$src" "$dest"
-            echo "Linked directory $DOTFILES_DIR/$src to $dest"
+        # Create a symlink for the target
+        ln -s "$DOTFILES_DIR/$src" "$dest"
+        if [[ $? -ne 0 ]]; then
+            echo "Failed to create symlink. Attempting with sudo..."
+            sudo ln -s "$DOTFILES_DIR/$src" "$dest"
+            if [[ $? -ne 0 ]]; then
+              echo "Failed to create symlink even with sudo."
+              exit 1
+            fi
         else
-            # Create a symlink for an individual file
-            ln -s "$DOTFILES_DIR/$src" "$dest"
-            echo "Linked file $DOTFILES_DIR/$src to $dest"
+          echo "Symlink created: $DOTFILES_DIR/$src -> $dest"
         fi
+
     done
 else
     echo "Config file $CONFIG_FILE not found."

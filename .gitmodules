@@ -34,3 +34,6 @@
 [submodule "hypr/hyprlock-catppuccin"]
 	path = hypr/hyprlock-catppuccin
 	url = https://github.com/catppuccin/hyprlock
+[submodule "grub/catppuccin"]
+	path = grub/catppuccin
+	url = https://github.com/catppuccin/grub
