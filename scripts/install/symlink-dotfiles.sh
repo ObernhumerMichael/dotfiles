@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 CONFIG_FILE="$DOTFILES_DIR/dotfiles.json"
 
 # Check if jq is installed for parsing JSON
@@ -13,7 +13,6 @@ fi
 if [[ -f "$CONFIG_FILE" ]]; then
     # Loop through each key-value pair in the JSON file
     jq -r 'to_entries[] | "\(.key) \(.value)"' "$CONFIG_FILE" | while read -r src dest; do
-
         # Expand ~ to $HOME in destination path
         dest="${dest/#\~/$HOME}"
 
@@ -43,6 +42,7 @@ if [[ -f "$CONFIG_FILE" ]]; then
               echo "Failed to create symlink even with sudo."
               exit 1
             fi
+            echo "Symlink created: $DOTFILES_DIR/$src -> $dest"
         else
           echo "Symlink created: $DOTFILES_DIR/$src -> $dest"
         fi

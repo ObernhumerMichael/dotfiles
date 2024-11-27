@@ -4,7 +4,6 @@ To install the dotfiles
 
 ```sh
 ./install.sh
-./symlink-dotfiles.sh
 ```
 
 ## Special Setup
@@ -32,4 +31,5 @@ Run `bat cache --build` to rebuild bats cache and activate its theme.
   - [kitty](https://github.com/catppuccin/kitty)
   - [tmux](https://github.com/catppuccin/tmux)
   - [grub](https://github.com/catppuccin/grub)
+  - [sddm](https://github.com/catppuccin/sddm)
 - Rofi: I stole most of the rofi layouts from [prasanthrangan/hyprdots](https://github.com/prasanthrangan/hyprdots). Thank you!

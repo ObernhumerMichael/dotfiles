@@ -1,34 +1,40 @@
 #!/bin/bash
 
+
+# Check if jq is installed for parsing JSON
+if ! command -v paru &>/dev/null; then
+    echo "paru is required but not installed."
+    echo "Install paru or use an other AUR helper and change it in the install.sh"
+    exit 1
+fi
+
 mkdir ~/Applications
 cd ~/Applications
 
-# Basics Hyprland 
-sudo pacman -S zsh hyprland ttf-jetbrains-mono-nerd sddm swaync xdg-desktop-portal-hyprland qt5-wayland qt6-wayland git base-devel hyprlock polkit polkit-kde-agent xorg-xhost
+# Basics Hyprland
+echo "Basics Hyprland"
+sudo pacman -S --needed zsh hyprland ttf-jetbrains-mono-nerd sddm swaync xdg-desktop-portal-hyprland qt5-wayland qt6-wayland git base-devel hyprlock polkit polkit-kde-agent xorg-xhost
 
 # Audio related essentails
-sudo pacman -S pipewire pipewire-alsa pipewire-pulse wireplumber alsa-utils pavucontrol alsa-firmware sof-firmware
+echo "Audio related essentails"
+sudo pacman -S --needed pipewire pipewire-alsa pipewire-pulse wireplumber alsa-utils pavucontrol alsa-firmware sof-firmware
 
 # Bluetooth related essentails
-sudo pacman -S bluez bluez-utils blueman
+echo "Bluetooth related essentails"
+sudo pacman -S --needed bluez bluez-utils blueman
 
 # System basics
-sudo pacman -S rofi-wayland tmux openssh neovim unzip nodejs npm brightnessctl wl-clipboard net-tools bc upower socat swww 
+echo "System basics"
+sudo pacman -S --needed tmux openssh neovim unzip nodejs npm brightnessctl wl-clipboard net-tools bc upower socat
 
 # Usefull CLI tools
-sudo pacman -S exa bandwhich fzf bat duf zoxide entr ripgrep tldr
-paru -S pyprland 
+echo "Usefull CLI tools"
+sudo pacman -S --needed exa bandwhich fzf bat duf zoxide entr ripgrep tldr
 
-# Install eww with an AUR helper (preferred)
-paru -S git-eww
-
-# Install eww manually
-# sudo pacman -S gtk3 gtk-layer-shell pango gdk-pixbuf2 libdbusmenu-gtk3 cairo glib2 gcc-libs glibc # dependencies
-# git clone https://github.com/elkowar/eww
-# cd eww
-# cargo build --release --no-default-features --features=wayland
-# cd target/release
-# chmod +x ./eww
+# Rice specific applications
+echo "Rice specific applications"
+paru -S --needed pyprland eww-git
+sudo pacman -S --needed rofi-wayland swww
 
 
 # Enable Services
@@ -40,7 +46,7 @@ sudo systemctl start bluetooth
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo "Configure dotiles:"
-./scripts/install/configure-applications.sh
+./scripts/install/configure-dotfiles.sh
 echo "\n"
 
 echo "Create symlinks from the repo to the required destinations:"

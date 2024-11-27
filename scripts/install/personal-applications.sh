@@ -1,5 +1,5 @@
 # Trading setup
-#
+
 mkdir ~/Applications/trading/
 cd ~/Applications/trading/
 
@@ -16,7 +16,9 @@ git checkout stable Freqtrade
 # Freqtrade setup
 sourc ./.venv/bin/activate
 freqtrade create-userdir --userdir user_data
+deactivate
+cd ~/
 
 
-sudo pacman -S gparted
-sudo pacman -S rsync
+# Some personal applications
+sudo pacman -S --needed gparted rsync
