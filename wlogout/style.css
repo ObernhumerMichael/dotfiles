@@ -1,0 +1,78 @@
+@import "./colorscheme-catppuccin-mocha.css";
+
+* {
+  font-family: JetBrainsMono Nerd Font;
+  font-size: 17px;
+  background-image: none;
+  box-shadow: none;
+  border-style: none;
+  text-decoration-color: @text;
+  color: @text;
+}
+
+window {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+button {
+  border-radius: 0;
+  background-color: @base;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 25%;
+}
+
+button:hover,
+button:focus {
+  background-color: rgba(0, 0, 0, 0.1);
+  background-size: 50%;
+  margin: -30px 0px -30px 0px;
+  border-radius: 30px;
+  /*box-shadow: inset 0px 0px 3px @base;*/
+}
+
+#lock {
+  background-image: image(
+    url("/usr/share/wlogout/icons/lock.png"),
+    url("/usr/local/share/wlogout/icons/lock.png")
+  );
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+#logout {
+  background-image: image(
+    url("/usr/share/wlogout/icons/logout.png"),
+    url("/usr/local/share/wlogout/icons/logout.png")
+  );
+}
+
+#suspend {
+  background-image: image(
+    url("/usr/share/wlogout/icons/suspend.png"),
+    url("/usr/local/share/wlogout/icons/suspend.png")
+  );
+}
+
+#hibernate {
+  background-image: image(
+    url("/usr/share/wlogout/icons/hibernate.png"),
+    url("/usr/local/share/wlogout/icons/hibernate.png")
+  );
+}
+
+#shutdown {
+  background-image: image(
+    url("/usr/share/wlogout/icons/shutdown.png"),
+    url("/usr/local/share/wlogout/icons/shutdown.png")
+  );
+}
+
+#reboot {
+  background-image: image(
+    url("/usr/share/wlogout/icons/reboot.png"),
+    url("/usr/local/share/wlogout/icons/reboot.png")
+  );
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}

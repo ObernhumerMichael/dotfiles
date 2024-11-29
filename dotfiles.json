@@ -16,5 +16,6 @@
   "eww": "~/.config/eww",
   "wallpapers": "~/Pictures/wallpapers",
   "rofi": "~/.config/rofi",
-  "grub/catppuccin/src/catppuccin-mocha-grub-theme": "/usr/share/grub/themes/catppuccin-mocha-grub-theme"
+  "grub/catppuccin/src/catppuccin-mocha-grub-theme": "/usr/share/grub/themes/catppuccin-mocha-grub-theme",
+  "wlogout": "~/.config/wlogout"
 }
