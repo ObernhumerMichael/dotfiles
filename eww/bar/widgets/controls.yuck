@@ -24,7 +24,7 @@
     :class "widget brightness"
     :hover-var is-brightness-hover
     :hover-varname "is-brightness-hover"
-    :onchange "brightnessctl set {}% -n 1%"
+    :onchange "brightnessctl set {}% -n 1% && ddcutil setvcp 10 {} &"
     :tooltip "${brightness}%"
     :icon-path "bar/img/brightness/${brightness < 5 ? "brightness_min.svg" 
       : brightness < 45 ? "brightness_low.svg" 
