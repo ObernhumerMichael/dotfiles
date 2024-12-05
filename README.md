@@ -32,4 +32,5 @@ Run `bat cache --build` to rebuild bats cache and activate its theme.
   - [tmux](https://github.com/catppuccin/tmux)
   - [grub](https://github.com/catppuccin/grub)
   - [sddm](https://github.com/catppuccin/sddm)
+  - [swaync](https://github.com/catppuccin/swaync)
 - Rofi: I stole most of the rofi layouts from [prasanthrangan/hyprdots](https://github.com/prasanthrangan/hyprdots). Thank you!

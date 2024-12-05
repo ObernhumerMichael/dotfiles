@@ -33,7 +33,7 @@ sudo pacman -S --needed exa bandwhich fzf bat duf zoxide entr ripgrep tldr
 
 # Rice specific applications
 echo "Rice specific applications"
-paru -S --needed pyprland eww-git wlogout
+paru -S --needed pyprland eww-git wlogout swaync
 sudo pacman -S --needed rofi-wayland swww
 
 
