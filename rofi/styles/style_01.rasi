@@ -22,7 +22,7 @@ mainbox {
     spacing:                     0em;
     padding:                     0em;
     orientation:                 horizontal;
-    children:                    [ "dummywall" , "listbox" ];
+    children:                    ["mode-switcher" ,  "dummywall" , "listbox", "inputbar" ];
     background-color:            transparent;
 }
 
@@ -32,10 +32,9 @@ dummywall {
     width:                       37em;
     expand:                      false;
     orientation:                 horizontal;
-    children:                    [ "mode-switcher" , "inputbar" ];
     background-color:            transparent;
     background-image:            url("~/.cache/wallpaper-selector/rofi", height);
-    background-position: center; 
+    background-position:         center; 
 }
 
 

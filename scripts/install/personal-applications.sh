@@ -21,4 +21,4 @@ cd ~/
 
 
 # Some personal applications
-sudo pacman -S --needed gparted rsync
+sudo pacman -S --needed gparted rsync thunderbird
