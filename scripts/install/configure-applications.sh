@@ -3,9 +3,9 @@
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 
 seperate() {
-  echo 
-  printf '%*s\n' "$(tput cols)" '' | tr ' ' '#'
-  echo 
+    echo
+    printf '%*s\n' "$(tput cols)" '' | tr ' ' '#'
+    echo
 }
 
 echo "Theming Grub"
@@ -19,5 +19,10 @@ SDDM_THEME_PATH="/usr/share/sddm/themes"
 sudo cp -r $DOTFILES_DIR/sddm/catppuccin/src/ $SDDM_THEME_PATH/catppuccin-mocha
 sudo cp -r $DOTFILES_DIR/sddm/catppuccin/pertheme/mocha.conf $SDDM_THEME_PATH/catppuccin-mocha/theme.conf
 
-echo "[Theme] 
+echo "[Theme]
 Current=catppuccin-mocha" | sudo tee /etc/sddm.conf > /dev/null
+
+seperate
+
+echo "Theming thunderbird"
+./configure-applications/thunderbird.sh
