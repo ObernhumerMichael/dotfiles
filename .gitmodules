@@ -37,3 +37,6 @@
 [submodule "grub/catppuccin"]
 	path = grub/catppuccin
 	url = https://github.com/catppuccin/grub
+[submodule "thunderbird/catppuccin"]
+	path = thunderbird/catppuccin
+	url = https://github.com/catppuccin/thunderbird
