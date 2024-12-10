@@ -8,10 +8,6 @@ To install the dotfiles
 
 ## Special Setup
 
-### tmux
-
-Launch tmux, press `STRG+A I` to install all the plugins.
-
 ### btop
 
 1. Launch btop, press `ESC`, and select `OPTIONS`.
