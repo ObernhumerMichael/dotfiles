@@ -1,6 +1,3 @@
-mkdir ~/Applications
-cd ~/Applications
-
 # Basics Hyprland
 echo "Basics Hyprland"
 sudo pacman -S --needed zsh hyprland ttf-jetbrains-mono-nerd sddm swaync xdg-desktop-portal-hyprland qt5-wayland qt6-wayland git base-devel hyprlock polkit polkit-kde-agent xorg-xhost
@@ -28,7 +25,7 @@ sudo pacman -S --needed rofi-wayland swww
 
 
 # Enable Services
-sudo stystemctl enable sddm.service
+sudo systemctl enable sddm.service
 sudo systemctl enable bluetooth
 sudo systemctl start bluetooth
 

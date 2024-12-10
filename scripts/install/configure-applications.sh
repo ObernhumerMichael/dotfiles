@@ -14,18 +14,14 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 seperate
 
-echo "Theming SDDM"
-SDDM_THEME_PATH="/usr/share/sddm/themes"
-sudo cp -r $DOTFILES_DIR/sddm/catppuccin/src/ $SDDM_THEME_PATH/catppuccin-mocha
-sudo cp -r $DOTFILES_DIR/sddm/catppuccin/pertheme/mocha.conf $SDDM_THEME_PATH/catppuccin-mocha/theme.conf
-
+echo "Enabling SDDM Theme"
 echo "[Theme]
 Current=catppuccin-mocha" | sudo tee /etc/sddm.conf > /dev/null
 
 seperate
 
 echo "Theming thunderbird"
-./configure-applications/thunderbird.sh
+$DOTFILES_DIR/scripts/install/configure-applications/thunderbird.sh
 
 seperate
 

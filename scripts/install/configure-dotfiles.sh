@@ -11,5 +11,3 @@ rm catppuccin-mocha.zip
 
 sudo rm -rf /usr/share/sddm/themes/catppuccin-mocha
 sudo mv ./catppuccin-mocha /usr/share/sddm/themes/
-
-

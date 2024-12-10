@@ -1,9 +1,10 @@
 #!/bin/bash
 
-if [ "$(id -u)" -ne 0 ]; then
-    echo "The script is NOT running as root. Please run as root."
-    exit 1
-fi
+seperate() {
+    echo
+    printf '%*s\n' "$(tput cols)" '' | tr ' ' '#'
+    echo
+}
 
 if ! command -v paru &>/dev/null; then
     echo "paru is required but not installed."
@@ -11,20 +12,26 @@ if ! command -v paru &>/dev/null; then
     exit 1
 fi
 
+echo "\n"
 echo "Install dependencies:"
+seperate
 ./scripts/install/install-dependencies.sh
-echo "\n"
 
+echo "\n"
 echo "Configure dotiles:"
+seperate
 ./scripts/install/configure-dotfiles.sh
-echo "\n"
 
+echo "\n"
 echo "Create symlinks from the repo to the required destinations:"
+seperate
 ./scripts/install/symlink-dotfiles.sh
-echo "\n"
 
+
+echo "\n"
 echo "Configure applications:"
+seperate
 ./scripts/install/configure-applications.sh
-echo "\n"
 
+echo "\n"
 echo If you are using Nvidia please check out the official hyprland docs on how to use Nvidia!
