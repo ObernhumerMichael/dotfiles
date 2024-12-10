@@ -8,11 +8,6 @@ To install the dotfiles
 
 ## Special Setup
 
-### btop
-
-1. Launch btop, press `ESC`, and select `OPTIONS`.
-1. Select your flavour of choice.
-
 ### thunderbird
 
 1. Go to Thunderbird Settings
