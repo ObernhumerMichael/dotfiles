@@ -29,13 +29,20 @@ sudo systemctl enable sddm.service
 sudo systemctl enable bluetooth
 sudo systemctl start bluetooth
 
-# Install
+# Hyprland plugins
 echo "Install hyprland plugins"
 hyprpm update
+
+# hyprexpo
 hyprpm add https://github.com/hyprwm/hyprland-plugins
-hyprpm update
 hyprpm enable hyprexpo
-hyprpm reload -nn
+hyprpm reload
+
+# hyprchroma
+hyprpm add https://github.com/alexhulbert/Hyprchroma
+hyprpm enable hyprchroma
+hyprpm reload
+
 
 # Install Oh My ZSH
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
