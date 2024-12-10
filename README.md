@@ -13,10 +13,6 @@ To install the dotfiles
 1. Launch btop, press `ESC`, and select `OPTIONS`.
 1. Select your flavour of choice.
 
-### bat
-
-Run `bat cache --build` to rebuild bats cache and activate its theme.
-
 ### thunderbird
 
 1. Go to Thunderbird Settings

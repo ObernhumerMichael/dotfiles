@@ -26,11 +26,11 @@ $DOTFILES_DIR/scripts/install/configure-applications/thunderbird.sh
 seperate
 
 echo "Install tmux plugins"
-# start a server but don't attach to it
-tmux start-server
-# create a new session but don't attach to it either
-tmux new-session -d
-# install the plugins
-~/.tmux/plugins/tpm/scripts/install_plugins.sh
-# killing the server is not required, I guess
-tmux kill-server
+tmux start-server # start a server but don't attach to it
+tmux new-session -d # create a new session but don't attach to it either
+~/.tmux/plugins/tpm/scripts/install_plugins.sh # install the plugins
+tmux kill-server # killing the server is not required, I guess
+
+seperate
+echo "Rebuild bats cache and activate its theme"
+bat cache --build

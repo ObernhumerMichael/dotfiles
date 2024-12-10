@@ -2,7 +2,7 @@
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -24,15 +24,11 @@ HIST_STAMPS="dd.mm.yyyy"
 plugins=(git docker zsh-autosuggestions zsh-you-should-use command-not-found zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-export BAT_THEME="Catppuccin_Mocha"
-export EDITOR='nvim'
 eval "$(zoxide init zsh)"
 source <(fzf --zsh)
 export FZF_DEFAULT_OPTS='--height 40% --tmux bottom,40% --layout reverse --border top --preview "bat --color=always --style=numbers --line-range=:500 {}"'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
-
 
 alias e="exa --icons"
 alias ee="exa -algm --icons"
