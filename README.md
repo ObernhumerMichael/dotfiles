@@ -21,6 +21,12 @@ Launch tmux, press `STRG+A I` to install all the plugins.
 
 Run `bat cache --build` to rebuild bats cache and activate its theme.
 
+### thunderbird
+
+1. Go to Thunderbird Settings
+1. Go to Add-ons and Themes
+1. Enable the theme
+
 # Credits
 
 - I thank the Catppuccin community for their configs that have been used in the following applications:
