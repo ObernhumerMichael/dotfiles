@@ -12,7 +12,7 @@ sudo pacman -S --needed bluez bluez-utils blueman
 
 # System basics
 echo "System basics"
-sudo pacman -S --needed tmux openssh neovim unzip nodejs npm brightnessctl wl-clipboard net-tools bc upower socat i2c-tools ddcutil
+sudo pacman -S --needed tmux openssh neovim unzip nodejs npm brightnessctl wl-clipboard net-tools bc upower socat i2c-tools ddcutil cpio cmake
 
 # Usefull CLI tools
 echo "Usefull CLI tools"
@@ -28,6 +28,14 @@ sudo pacman -S --needed rofi-wayland swww
 sudo systemctl enable sddm.service
 sudo systemctl enable bluetooth
 sudo systemctl start bluetooth
+
+# Install
+echo "Install hyprland plugins"
+hyprpm update
+hyprpm add https://github.com/hyprwm/hyprland-plugins
+hyprpm update
+hyprpm enable hyprexpo
+hyprpm reload -nn
 
 # Install Oh My ZSH
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
