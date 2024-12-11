@@ -22,6 +22,7 @@ return {
         "dart",
         "yuck",
         "rasi",
+        "hyprlang",
       },
     },
   },
