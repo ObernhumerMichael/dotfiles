@@ -33,16 +33,19 @@ sudo systemctl start bluetooth
 echo "Install hyprland plugins"
 hyprpm update
 
-# hyprexpo
+# grid style overview of workspaces
 hyprpm add https://github.com/hyprwm/hyprland-plugins
 hyprpm enable hyprexpo
-hyprpm reload
 
-# hyprchroma
+# transparency without affecting readability
 hyprpm add https://github.com/alexhulbert/Hyprchroma
 hyprpm enable hyprchroma
-hyprpm reload
 
+# workspace overview similar to that of KDE Plasma, GNOME
+hyprpm add https://github.com/KZDKM/Hyprspace
+hyprpm enable Hyprspace
+
+hyprpm reload
 
 # Install Oh My ZSH
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
