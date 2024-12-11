@@ -12,7 +12,7 @@ sudo pacman -S --needed bluez bluez-utils blueman
 
 # System basics
 echo "System basics"
-sudo pacman -S --needed tmux openssh neovim unzip nodejs npm brightnessctl wl-clipboard net-tools bc upower socat i2c-tools ddcutil cpio cmake
+sudo pacman -S --needed tmux openssh neovim unzip nodejs npm brightnessctl wl-clipboard net-tools bc upower socat i2c-tools ddcutil cpio cmake bind
 
 # Usefull CLI tools
 echo "Usefull CLI tools"
