@@ -12,6 +12,12 @@ if ! command -v paru &>/dev/null; then
     exit 1
 fi
 
+
+echo "\n"
+echo "Create directories:"
+seperate
+./scripts/install/create-dirs.sh
+
 echo "\n"
 echo "Install dependencies:"
 seperate

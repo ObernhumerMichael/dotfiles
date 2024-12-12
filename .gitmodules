@@ -40,3 +40,6 @@
 [submodule "thunderbird/catppuccin"]
 	path = thunderbird/catppuccin
 	url = https://github.com/catppuccin/thunderbird
+[submodule "scripts/hyprwm-contrib"]
+	path = scripts/hyprwm-contrib
+	url = https://github.com/hyprwm/contrib
