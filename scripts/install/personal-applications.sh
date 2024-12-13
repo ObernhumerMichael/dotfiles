@@ -21,4 +21,4 @@ cd ~/
 
 
 # Some personal applications
-sudo pacman -S --needed gparted rsync thunderbird libreoffice-fresh
+sudo pacman -S --needed gparted rsync thunderbird libreoffice-fresh nextcloud-client
