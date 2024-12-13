@@ -12,11 +12,10 @@ sudo pacman -S --needed bluez bluez-utils blueman
 
 # System basics
 echo "System basics"
-sudo pacman -S --needed tmux openssh neovim unzip nodejs npm brightnessctl wl-clipboard net-tools bc upower socat i2c-tools ddcutil cpio cmake bind
+sudo pacman -S --needed openssh unzip nodejs npm brightnessctl wl-clipboard net-tools bc upower socat i2c-tools ddcutil cpio cmake bind
 
 # Basic system applications
-sudo pacman -S --needed gwenview
-paru -S --needed nomacs
+sudo pacman -S --needed gwenview neovim tmux
 
 # Usefull CLI tools
 echo "Usefull CLI tools"
@@ -26,7 +25,7 @@ sudo pacman -S --needed exa bandwhich fzf bat duf zoxide entr ripgrep tldr
 echo "Rice specific applications"
 paru -S --needed pyprland eww-git wlogout swaync
 sudo pacman -S --needed rofi-wayland swww
-# Screen shots
+# Screenshots
 sudo pacman -S --needed grim slurp hyprpicker
 
 # Enable Services

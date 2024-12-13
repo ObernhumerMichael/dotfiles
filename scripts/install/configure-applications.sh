@@ -44,3 +44,16 @@ sed -i "s/vim_keys = False/vim_keys = True/" "$BTOP_CONFIG/btop.conf"
 seperate
 echo "Install Grimblast"
 sudo make install $DOTFILES_DIR/scripts/hyprwm-contrib/grimblast/
+
+echo "Set LibreOffice to dark mode"
+seperate
+LIBREOFFICE_CONFIG="$HOME/.config/libreoffice/4/user/registrymodifications.xcu"
+AppearanceConf="$(grep '<item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="Appearance" oor:op="fuse">' $LIBREOFFICE_CONFIG)"
+if [[ -n $AppearanceConf ]]; then
+    # Set to dark mode
+    sed -i 's|<item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="Appearance" oor:op="fuse"><value>.</value></prop></item>|<item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="Appearance" oor:op="fuse"><value>2</value></prop></item>|' $LIBREOFFICE_CONFIG
+else
+    # Add Apperance config line + set to dark mode
+    sed -i '$i<item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="Appearance" oor:op="fuse"><value>2</value></prop></item>' $LIBREOFFICE_CONFIG
+fi
+
