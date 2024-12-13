@@ -34,6 +34,7 @@
  
 (defwidget container-right[]
  (box :class "container" :halign "end" :spacing 5 :space-evenly false
+    (systray :class "widget systray" :icon-size 20 :space-evenly false :spacing 10)
     (sound)
     (network)
     (battery)

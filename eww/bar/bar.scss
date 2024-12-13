@@ -2,3 +2,8 @@
 @import "scss/controls.scss";
 @import "scss/system.scss";
 @import "scss/workspace.scss";
+
+.systray {
+  background-color: $overlay2;
+  color: $text;
+}
