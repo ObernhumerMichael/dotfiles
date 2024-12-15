@@ -6,8 +6,8 @@ wallpaper_tmp_path='/tmp/wallpaper-temp.json'
 page_nr=$(jq -r '.page_nr' $wallpaper_data_path )
 max_page_nr=$(jq -r '.max_page_nr' $wallpaper_data_path )
 
-if [[ $page_nr < $max_page_nr ]]; then
-  jq ".page_nr=$((page_nr + 1))" $wallpaper_data_path > $wallpaper_tmp_path && mv $wallpaper_tmp_path $wallpaper_data_path
-else 
-  jq ".page_nr=1" $wallpaper_data_path > $wallpaper_tmp_path && mv $wallpaper_tmp_path $wallpaper_data_path
+if (( $page_nr < $max_page_nr )); then
+    jq ".page_nr=$((page_nr + 1))" $wallpaper_data_path > $wallpaper_tmp_path && mv $wallpaper_tmp_path $wallpaper_data_path
+else
+    jq ".page_nr=1" $wallpaper_data_path > $wallpaper_tmp_path && mv $wallpaper_tmp_path $wallpaper_data_path
 fi
