@@ -3,8 +3,8 @@
 
 // Main //
 window {
-    height:                      33em;
-    width:                       63em;
+    height:                      600px;
+    width:                       1200px;
     transparency:                "real";
     fullscreen:                  false;
     enabled:                     true;
@@ -29,11 +29,11 @@ mainbox {
 dummywall {
     spacing:                     0em;
     padding:                     0em;
-    width:                       37em;
+    width:                       700px;
     expand:                      false;
     orientation:                 horizontal;
     background-color:            transparent;
-    background-image:            url("~/.cache/wallpaper-selector/rofi", height);
+    background-image:            url("~/.cache/wallpaper-selector/scaled-rofi.png");
     background-position:         center; 
 }
 
