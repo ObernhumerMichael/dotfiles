@@ -23,6 +23,8 @@ paru -S --needed pyprland eww-git wlogout swaync
 sudo pacman -S --needed rofi-wayland swww
 # Screenshots
 sudo pacman -S --needed grim slurp hyprpicker
+# Theming
+sudo pacman -S --needed kvantum
 
 echo "Enable Services"
 sudo systemctl enable sddm.service

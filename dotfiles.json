@@ -17,5 +17,6 @@
   "rofi": "~/.config/rofi",
   "grub/catppuccin/src/catppuccin-mocha-grub-theme": "/usr/share/grub/themes/catppuccin-mocha-grub-theme",
   "wlogout": "~/.config/wlogout",
-  "swaync": "~/.config/swaync"
+  "swaync": "~/.config/swaync",
+  "kvantum/config": "~/.config/Kvantum"
 }

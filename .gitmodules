@@ -43,3 +43,6 @@
 [submodule "scripts/hyprwm-contrib"]
 	path = scripts/hyprwm-contrib
 	url = https://github.com/hyprwm/contrib
+[submodule "kvantum/catppuccin"]
+	path = kvantum/catppuccin
+	url = https://github.com/catppuccin/Kvantum
