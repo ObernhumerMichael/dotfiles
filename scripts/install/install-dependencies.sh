@@ -11,7 +11,7 @@ echo "Bluetooth related essentails"
 sudo pacman -S --needed bluez bluez-utils blueman
 
 echo "System basics"
-sudo pacman -S --needed openssh unzip nodejs npm brightnessctl wl-clipboard net-tools bc upower socat i2c-tools ddcutil cpio cmake bind imagemagick
+sudo pacman -S --needed openssh unzip nodejs npm brightnessctl wl-clipboard net-tools bc upower socat i2c-tools ddcutil cpio cmake bind imagemagick gdb
 # Basic system applications
 sudo pacman -S --needed gwenview neovim tmux thunar
 

@@ -22,3 +22,6 @@ cd ~/
 
 # Some personal applications
 sudo pacman -S --needed gparted rsync thunderbird libreoffice-fresh nextcloud-client
+
+# gammaray
+sudo pacman -S --needed gammaray
