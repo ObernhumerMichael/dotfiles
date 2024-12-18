@@ -18,5 +18,6 @@
   "grub/catppuccin/src/catppuccin-mocha-grub-theme": "/usr/share/grub/themes/catppuccin-mocha-grub-theme",
   "wlogout": "~/.config/wlogout",
   "swaync": "~/.config/swaync",
-  "kvantum/config": "~/.config/Kvantum"
+  "qt/qt5ct": "~/.config/qt5ct",
+  "qt/qt6ct": "~/.config/qt6ct"
 }

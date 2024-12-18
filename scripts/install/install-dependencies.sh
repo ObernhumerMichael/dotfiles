@@ -24,7 +24,7 @@ sudo pacman -S --needed rofi-wayland swww
 # Screenshots
 sudo pacman -S --needed grim slurp hyprpicker
 # Theming
-sudo pacman -S --needed kvantum
+sudo pacman -S --needed kvantum qt5-base qt6-base kvantum-qt5 qt5-wayland qt6-wayland qt6ct
 
 echo "Enable Services"
 sudo systemctl enable sddm.service
