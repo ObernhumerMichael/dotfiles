@@ -2,7 +2,8 @@
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 
 echo "Basics Hyprland"
-sudo pacman -S --needed zsh hyprland ttf-jetbrains-mono-nerd sddm swaync xdg-desktop-portal-hyprland qt5-wayland qt6-wayland git base-devel hyprlock polkit polkit-kde-agent xorg-xhost
+sudo pacman -S --needed zsh hyprland ttf-jetbrains-mono-nerd sddm swaync xdg-desktop-portal-hyprland qt6-wayland qt6-wayland git base-devel hyprlock polkit polkit-kde-agent xorg-xhost
+paru -S --needed hyprland-qtutils
 
 echo "Audio related essentails"
 sudo pacman -S --needed pipewire pipewire-alsa pipewire-pulse wireplumber alsa-utils pavucontrol alsa-firmware sof-firmware
@@ -46,6 +47,7 @@ hyprpm enable hyprchroma
 hyprpm add https://github.com/KZDKM/Hyprspace
 hyprpm enable Hyprspace
 
+hyprpm update
 hyprpm reload
 
 echo "Install hyprwm tools"
