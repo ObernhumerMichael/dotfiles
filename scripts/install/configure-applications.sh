@@ -32,17 +32,20 @@ tmux new-session -d # create a new session but don't attach to it either
 tmux kill-server # killing the server is not required, I guess
 
 seperate
+
 echo "Rebuild bats cache and activate its theme"
 bat cache --build
 
 seperate
+
 echo "Configure and theme btop"
 BTOP_CONFIG="$HOME/.config/btop"
 sed -i "s|color_theme.*|color_theme = $BTOP_CONFIG/themes/dotfiles.theme|" "$BTOP_CONFIG/btop.conf"
 sed -i "s/vim_keys = False/vim_keys = True/" "$BTOP_CONFIG/btop.conf"
 
-echo "Set LibreOffice to dark mode"
 seperate
+
+echo "Set LibreOffice to dark mode"
 LIBREOFFICE_CONFIG="$HOME/.config/libreoffice/4/user/registrymodifications.xcu"
 AppearanceConf="$(grep '<item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="Appearance" oor:op="fuse">' $LIBREOFFICE_CONFIG)"
 if [[ -n $AppearanceConf ]]; then
@@ -53,3 +56,15 @@ else
     sed -i '$i<item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="Appearance" oor:op="fuse"><value>2</value></prop></item>' $LIBREOFFICE_CONFIG
 fi
 
+seperate
+
+echo "Set gwenview to the current theme with UI fixes"
+GWENVIEW_DESKTOP_ENTRY="/usr/share/applications/org.kde.gwenview.desktop"
+GWENVIEWRC="$HOME/.config/gwenviewrc"
+BackgroundColorMode="$(grep 'BackgroundColorMode=DocumentView::Light' $GWENVIEWRC)"
+
+if [[ -z $BackgroundColorMode ]]; then
+    sed -i '/\[General\]/a BackgroundColorMode=DocumentView::Light' "$GWENVIEWRC"
+fi
+
+sudo sed -i "s|Exec=gwenview %U|Exec=gwenview -stylesheet $DOTFILES_DIR/qt/qt6ct/qss/gwenview-style.qss %U|" "$GWENVIEW_DESKTOP_ENTRY"
