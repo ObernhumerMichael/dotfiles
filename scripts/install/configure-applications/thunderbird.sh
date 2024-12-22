@@ -1,6 +1,7 @@
 #!/bin/bash
 
-DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
+echo "Theming thunderbird"
+DOTFILES_DIR=$1
 THEME_NAME="mocha-mauve"
 THEME_FILE="$DOTFILES_DIR/thunderbird/catppuccin/themes/mocha/$THEME_NAME.xpi"
 if [ ! -f "$THEME_FILE" ]; then
