@@ -31,7 +31,7 @@
       : brightness < 55 ? "brightness-medium.svg" 
       : "brightness_high.svg"}"))
 
-; Network (for wifi see widgets/wifi.yuck)
+; Network (for wifi see eww/network/network.yuck
 (defpoll active-network-name :interval "2s" :initial "" "scripts/network/get-network-name")
 (defpoll active-network-strength :interval "2s" :initial "" "scripts/network/get-current-network-strength")
 

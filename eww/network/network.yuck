@@ -18,10 +18,9 @@
   :stacking "overlay"
   :exclusive false
   (box :class "ssid-list" :orientation "vertical" :space-evenly false
-    ; Dynamic SSID List
-    (for wifi in wifi-list
-     (button :class "ssid" :onclick "scripts/network/connect-to-wifi ${wifi}"
-      (label :text wifi :xalign 0)))
+
+    ; Dynamic wifi list
+    (literal :content wifi-list)
 
     ; Turn Wifi on/off
     (revealer :reveal {is-wifi-on=="enabled"} :transition "slidedown"
@@ -35,3 +34,16 @@
     (revealer :reveal is-lan-available :transition "slidedown"
       (button :class "ssid" :onclick "scripts/network/connect-to-ethernet" 
         (label :text "Ethernet" :xalign 0)))))
+
+; is used to create the dynamic ssid list with the get-network-list script
+(defwidget ssid-list-element[ssid signal]
+  (button :class "ssid" :onclick "scripts/network/connect-to-wifi ${ssid}"
+     (icon-text 
+         :icon_path "bar/img/network/${ signal < 30 ? "unusable.svg" 
+                : signal < 50 ? "weak.svg" 
+                : signal < 70 ? "fair.svg" 
+                : signal < 90 ? "good.svg" 
+                : "excellent.svg" }" 
+         :image-height 15
+         :text "${ssid}"
+         :class "")))

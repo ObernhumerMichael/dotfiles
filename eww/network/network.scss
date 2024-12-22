@@ -2,7 +2,8 @@
   background-color: $teal;
   padding: $whitespace;
   border-radius: $border-radius;
-  margin-right: $system-whitespace/2;
+  margin: $system-whitespace;
+  box-shadow: 0px 0px 10px $crust;
 }
 
 .ssid {
@@ -12,4 +13,8 @@
 
 .ssid:hover {
   background-color: rgba($color: $base, $alpha: 0.1);
+}
+
+.wifi-off:hover {
+  background-color: $red;
 }

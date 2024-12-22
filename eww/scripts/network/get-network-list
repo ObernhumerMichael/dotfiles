@@ -1,10 +1,23 @@
 #!/bin/bash
 
-array_content=$(nmcli -t -f ssid dev wifi |  # get the SSIDs
-  awk '{$1=$1}1' | # remove trailing and preceding whitespaces
-  grep -v '^$' | # remove empty lines
-  sort | # sort the output --> needed for uniq
-  uniq | # remove duplicates
-  awk '{printf("\"%s\", ", $0)}' | sed 's/, $/\n/') # bring input into array like format
+literal='(box :orientation "vertical" :space-evenly false'
+wifi_json="$(nmcli -t -f ssid,signal dev wifi | # Fetches the SSID and signal strength
+    awk -F: '$1 != "" {print}' | #  Filters out lines where the SSID is empty
+    sort -t: -k2 -nr | #  Sorts the output by the signal strength (descending)
+    awk -F: '!seen[$1]++ {printf "{\"ssid\":\"%s\",\"signal\":%s},", $1, $2}' |
+    # 1. Filters for the strongest SSID per network
+    # 2. Formats each line as a JSON object: {"ssid":"SSID_NAME","signal":SIGNAL}
+    # 3. Appends a comma to each object
+    sed 's/,$//' | # Removes the trailing comma from the final JSON object
+awk 'BEGIN {print "["} {print} END {print "]"}')"  # Wraps the JSON objects in square brackets to form a JSON array
 
-echo "[$array_content]"
+# Use process substitution instead of a pipe to preserve the changes to literal
+while read -r element; do
+    ssid=$(echo "$element" | jq -r '.ssid')
+    signal=$(echo "$element" | jq -r '.signal')
+    literal+="(ssid-list-element :ssid \"$ssid\" :signal $signal) "
+done < <(echo "$wifi_json" | jq -c '.[]')
+
+literal+=")"
+
+echo "$literal"
