@@ -1,5 +1,15 @@
 #!/bin/bash
 
-nmcli dev wifi connect $1 &
 eww close network-selector
 eww close network-selector-closer
+
+# Attempt to connect to the Wi-Fi network
+nmcli dev wifi connect "$1" --ask
+
+# Check if the last command was successful
+if [ $? -ne 0 ]; then
+    echo "Connection failed. Opening nmtui..."
+    kitty nmtui
+else
+    echo "Connection successful!"
+fi

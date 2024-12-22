@@ -13,7 +13,6 @@
   :monitor '["<primary>", "HDMI-A-1", 0]'
   :geometry (geometry :width "15%"
                       :height "30px"
-                      :y "10px"
                       :anchor "top right")
   :stacking "overlay"
   :exclusive false
@@ -37,7 +36,7 @@
 
 ; is used to create the dynamic ssid list with the get-network-list script
 (defwidget ssid-list-element[ssid signal]
-  (button :class "ssid" :onclick "scripts/network/connect-to-wifi ${ssid}"
+  (button :class "ssid" :onclick "scripts/network/connect-to-wifi ${ssid} &"
      (icon-text 
          :icon_path "bar/img/network/${ signal < 30 ? "unusable.svg" 
                 : signal < 50 ? "weak.svg" 
