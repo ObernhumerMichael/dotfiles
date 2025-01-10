@@ -14,7 +14,7 @@ sudo pacman -S --needed bluez bluez-utils blueman
 echo "System basics"
 sudo pacman -S --needed openssh unzip nodejs npm brightnessctl wl-clipboard net-tools bc upower socat i2c-tools ddcutil cpio cmake bind imagemagick gdb network-manager-applet
 # Basic system applications
-sudo pacman -S --needed gwenview neovim tmux thunar pdfarranger
+sudo pacman -S --needed gwenview neovim tmux thunar pdfarranger okular
 
 echo "Usefull CLI tools"
 sudo pacman -S --needed exa bandwhich fzf bat duf zoxide entr ripgrep tldr
