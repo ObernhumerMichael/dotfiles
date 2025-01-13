@@ -15,6 +15,15 @@ echo "System basics"
 sudo pacman -S --needed openssh unzip nodejs npm brightnessctl wl-clipboard net-tools bc upower socat i2c-tools ddcutil cpio cmake bind imagemagick gdb network-manager-applet
 # Basic system applications
 sudo pacman -S --needed gwenview neovim tmux thunar pdfarranger okular
+# Printer/Scanner
+sudo pacman -S --needed cups system-config-printer sane
+# Drivers (Generic)
+sudo pacman -S --needed gutenprint foomatic-db foomatic-db-engine foomatic-db-nonfree
+sudo pacman -S --needed sane-airscan simple-scan
+
+# Enable Services
+sudo systemctl start cups.service
+sudo systemctl enable cups.service
 
 echo "Usefull CLI tools"
 sudo pacman -S --needed exa bandwhich fzf bat duf zoxide entr ripgrep tldr
