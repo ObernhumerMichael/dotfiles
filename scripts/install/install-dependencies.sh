@@ -12,11 +12,11 @@ echo "Bluetooth related essentails"
 sudo pacman -S --needed bluez bluez-utils blueman
 
 echo "System basics"
-sudo pacman -S --needed openssh unzip nodejs npm brightnessctl wl-clipboard net-tools bc upower socat i2c-tools ddcutil cpio cmake bind imagemagick gdb network-manager-applet
+sudo pacman -S --needed openssh unzip nodejs npm brightnessctl wl-clipboard net-tools bc upower socat i2c-tools ddcutil cpio cmake bind imagemagick gdb network-manager-applet python-pyqt5
 # Basic system applications
 sudo pacman -S --needed gwenview neovim tmux thunar pdfarranger okular
 # Printer/Scanner
-sudo pacman -S --needed cups system-config-printer sane
+sudo pacman -S --needed cups system-config-printer sane hplip
 # Drivers (Generic)
 sudo pacman -S --needed gutenprint foomatic-db foomatic-db-engine foomatic-db-nonfree
 sudo pacman -S --needed sane-airscan simple-scan
