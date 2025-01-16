@@ -7,6 +7,10 @@ text/calendar=userapp-Thunderbird-YENUY2.desktop
 application/x-extension-ics=userapp-Thunderbird-YENUY2.desktop
 x-scheme-handler/webcals=userapp-Thunderbird-YENUY2.desktop
 application/pdf=org.kde.okular.desktop
+image/jpeg=org.kde.gwenview.desktop
+image/png=org.kde.gwenview.desktop
+image/gif=org.kde.gwenview.desktop
+image/jpg=org.kde.gwenview.desktop
 
 [Added Associations]
 x-scheme-handler/mailto=userapp-Thunderbird-VL0TY2.desktop;
