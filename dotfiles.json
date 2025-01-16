@@ -19,5 +19,6 @@
   "wlogout": "~/.config/wlogout",
   "swaync": "~/.config/swaync",
   "qt/qt5ct": "~/.config/qt5ct",
-  "qt/qt6ct": "~/.config/qt6ct"
+  "qt/qt6ct": "~/.config/qt6ct",
+  "other/mimeapps.list": "~/.config/mimeapps.list"
 }

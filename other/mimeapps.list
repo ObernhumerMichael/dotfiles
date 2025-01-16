@@ -1,0 +1,16 @@
+[Default Applications]
+x-scheme-handler/mailto=userapp-Thunderbird-VL0TY2.desktop
+message/rfc822=userapp-Thunderbird-VL0TY2.desktop
+x-scheme-handler/mid=userapp-Thunderbird-VL0TY2.desktop
+x-scheme-handler/webcal=userapp-Thunderbird-YENUY2.desktop
+text/calendar=userapp-Thunderbird-YENUY2.desktop
+application/x-extension-ics=userapp-Thunderbird-YENUY2.desktop
+x-scheme-handler/webcals=userapp-Thunderbird-YENUY2.desktop
+application/pdf=org.kde.okular.desktop
+
+[Added Associations]
+x-scheme-handler/mailto=userapp-Thunderbird-VL0TY2.desktop;
+x-scheme-handler/mid=userapp-Thunderbird-VL0TY2.desktop;
+x-scheme-handler/webcal=userapp-Thunderbird-YENUY2.desktop;
+x-scheme-handler/webcals=userapp-Thunderbird-YENUY2.desktop;
+image/png=org.kde.gwenview.desktop;
