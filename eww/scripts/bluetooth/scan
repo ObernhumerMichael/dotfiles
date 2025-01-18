@@ -1,0 +1,68 @@
+#!/bin/bash
+
+last_list=""
+while [[ true ]]; do
+  # Start Bluetooth scan to discover devices
+  bluetoothctl --timeout 1 scan on > /dev/null 2>&1
+
+  # Collect devices information
+  output=$(bluetoothctl devices)
+
+  # Prepare JSON array
+  json_output="["
+
+  # Loop through each device
+  while read -r line; do
+      if [[ $line =~ ^Device\ ([[:xdigit:]:]{17})\ (.+)$ ]]; then
+          mac="${BASH_REMATCH[1]}"
+          name="${BASH_REMATCH[2]}"
+
+          # Get device status
+          paired=$(bluetoothctl info "$mac" | grep -q "Paired: yes" && echo true || echo false)
+          trusted=$(bluetoothctl info "$mac" | grep -q "Trusted: yes" && echo true || echo false)
+          connected=$(bluetoothctl info "$mac" | grep -q "Connected: yes" && echo true || echo false)
+
+          # Append device information to JSON
+          json_output+=$(cat <<EOF
+{
+  "mac": "$mac",
+  "name": "$name",
+  "paired": $paired,
+  "trusted": $trusted,
+  "connected": $connected
+},
+EOF
+)
+      fi
+  done <<< "$output"
+
+  # Remove trailing comma and close the JSON array
+  json_output=$(echo "$json_output" | sed '$ s/,$//')
+  json_output+="]"
+
+  # Filter out devices with names resembling a MAC address 
+  json_output=$(echo "$json_output" | jq '[.[] | select(.name | test("^[A-Fa-f0-9]{2}(-[A-Fa-f0-9]{2}){5}$") | not)]')
+  
+  # Sort the array so that connected devices are at the beginning
+  json_output=$(echo "$json_output" | jq 'sort_by(.connected) | reverse')
+
+  # construct the literal
+  current_list='(box :orientation "vertical" :space-evenly false'
+  while read -r device; do
+      # extract the data
+      mac=$(echo "$device" | jq -r '.mac')
+      name=$(echo "$device" | jq -r '.name')
+      paired=$(echo "$device" | jq -r '.paired')
+      trusted=$(echo "$device" | jq -r '.trusted')
+      connected=$(echo "$device" | jq -r '.connected')
+
+      current_list+="(bluetooth-device :name \"$name\" :mac \"$mac\" :is-paired $paired :is-trusted $trusted :is-connected $connected)"
+  done < <(echo "$json_output" | jq -c '.[]')
+  current_list+=")"
+
+  if [[ "$current_list" != "$last_list" ]]; then
+    last_list=$current_list
+    echo "$current_list"
+  fi
+
+done

@@ -2,3 +2,4 @@
 (include "./bar/bar.yuck")
 (include "./network/network.yuck")
 (include "./wallpaper/wallpaper.yuck")
+(include "./bluetooth/bluetooth.yuck")

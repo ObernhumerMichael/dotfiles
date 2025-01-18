@@ -37,6 +37,7 @@
     (systray :class "widget systray" :icon-size 20 :space-evenly false :spacing 10)
     (sound)
     (network)
+    (bluetooth)
     (battery)
     (brightness)
     (time)))

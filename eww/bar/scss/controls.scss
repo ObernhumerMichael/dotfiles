@@ -8,10 +8,13 @@
   background-color: $yellow;
 }
 
-.network {
+.network,
+.bluetooth {
   background-color: $teal;
 }
-.network:hover {
+
+.network:hover,
+.bluetooth:hover {
   background-color: rgba($color: $teal, $alpha: 0.9);
 }
 

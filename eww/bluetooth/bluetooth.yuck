@@ -1,0 +1,63 @@
+(deflisten bluetooth-list :initial "" "scripts/bluetooth/scan")
+(defpoll is-bluetooth-on :interval "1s" "bluetoothctl show | grep PowerState | awk -F: '{printf $2}' | awk '{$1=$1}1'")
+
+(defwindow bluetooth-selector-closer
+  :monitor '["<primary>", "HDMI-A-1", 0]'
+  :geometry (geometry :width "100%" :height "100%")
+  :stacking "fg"
+  :focusable false
+  (closer :window "bluetooth-selector"))
+
+(defwindow bluetooth-selector
+  :monitor '["<primary>", "HDMI-A-1", 0]'
+  :geometry (geometry :width "15%"
+                      :height "30px"
+                      :anchor "top right")
+  :stacking "overlay"
+  :exclusive false
+  (box :class "bluetooth-list" :orientation "vertical" :space-evenly false
+
+    ; Dynamic bluetooth-list
+    (literal :content bluetooth-list)
+
+    ; Turn bluetooth on/off
+    (revealer :reveal {is-bluetooth-on=="on"} :transition "slidedown"
+      (button :class "bluetooth-el" :onclick "bluetoothctl power off &" 
+        (label :text "Turn off Bluetooth" :xalign 0)))
+    (revealer :reveal {is-bluetooth-on=="off"} :transition "slidedown"
+      (button :class "bluetooth-el" :onclick "bluetoothctl power on &" 
+        (label :text "Turn on Bluetooth" :xalign 0)))))
+
+
+(defwidget bluetooth-device[name mac is-paired is-trusted is-connected]
+  (box :space-evenly false :spacing 5 
+    ; Connect
+    (button 
+      :class "bluetooth-el"
+      :onclick "${is-connected ? "bluetoothctl disconnect ${mac} &" :  "bluetoothctl connect ${mac} &"}" 
+      :hexpand true 
+      (box :space-evenly false :spacing 5
+        (label :halign "start" :text "${name}")
+        (label :halign "start" :text "${is-connected ? "connected":""}" :class "subtext")))
+
+    ; Icons/Actions
+    (box :space-evenly false 
+      (revealer :reveal {is-paired && is-trusted} :transition "slideleft" 
+        (box :space-evenly false
+          (button :onclick "bluetoothctl untrust ${mac} &" :class "bluetooth-el" 
+            (image :path "bluetooth/img/star_filled.svg" :image-height 15))
+          (box :width 5)))
+
+      (revealer :reveal {is-paired && !is-trusted} :transition "slideleft" 
+        (box :space-evenly false
+          (button :onclick "bluetoothctl trust ${mac} &" :class "bluetooth-el"
+            (image :path "bluetooth/img/star_outline.svg" :image-height 15))
+          (box :width 5)))
+
+      (revealer :reveal {is-paired} :transition "slideleft" 
+        (button :onclick "bluetoothctl remove ${mac} &" :class "bluetooth-unpair" 
+          (image :path "bluetooth/img/remove_link.svg" :image-height 15)))
+
+      (revealer :reveal {!is-paired} :transition "slideleft" 
+          (button :onclick "bluetoothctl pair ${mac} &" :class "bluetooth-el" 
+              (image :path "bluetooth/img/add_link.svg" :image-height 11))))))

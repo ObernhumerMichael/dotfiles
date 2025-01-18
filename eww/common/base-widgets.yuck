@@ -1,6 +1,7 @@
 (defwidget icon-text [icon_path text ?class ?subtext]
- (box :class "${class}" :space-evenly false :spacing 10
+ (box :class "${class}" :space-evenly false
   (image :path icon_path :image-height 15) 
+  (box :width 10)
   (label :text "${text}")
   (label :class "subtext" :text "${subtext}")))
 

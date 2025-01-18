@@ -53,6 +53,13 @@
           : "excellent.svg" }" 
           :image-height 15)))))
 
+(defwidget bluetooth[]
+  (button :class "widget bluetooth" :onclick "eww open-many --toggle bluetooth-selector bluetooth-selector-closer" :onrightclick "blueman-manager &"
+   (box :space-evenly false :spacing 10
+    (tooltip 
+       (label :class "widget bluetooth tooltip" :text "TODO") 
+       (image :path "bar/img/bluetooth/bluetooth.svg" :image-height 15)))))
+
 ; Battery
 (defpoll battery-percentage :interval "5s" :initial -1 "scripts/battery/get-percentage")
 (defpoll battery-state :interval "5s" :initial "" "scripts/battery/get-state")

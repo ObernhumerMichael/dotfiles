@@ -1,4 +1,4 @@
-.ssid-list {
+.bluetooth-list {
   background-color: $teal;
   padding: $whitespace;
   border-radius: $border-radius;
@@ -6,16 +6,27 @@
   box-shadow: 0px 0px 10px $crust;
 }
 
-.ssid {
+.bluetooth-el,
+.bluetooth-unpair {
   padding: $whitespace/2;
   border-radius: $border-radius;
 }
 
-.ssid:hover {
+.bluetooth-el:hover {
   background-color: rgba($color: $base, $alpha: 0.1);
 }
 
-.ssid .subtext {
+.bluetooth-el .subtext {
   color: $overlay0;
-  padding-left: 10px;
+}
+
+.bluetooth-unpair:hover {
+  background-color: $red;
+}
+
+.tmp {
+  background-color: red;
+}
+.tmp2 {
+  background-color: white;
 }
