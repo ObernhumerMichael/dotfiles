@@ -35,7 +35,7 @@
         (label :text "Ethernet" :xalign 0)))))
 
 ; is used to create the dynamic ssid list with the get-network-list script
-(defwidget ssid-list-element[ssid signal]
+(defwidget ssid-list-element[ssid signal security]
   (button :class "ssid" :onclick "scripts/network/connect-to-wifi ${ssid} &"
      (icon-text 
          :icon_path "bar/img/network/${ signal < 30 ? "unusable.svg" 
@@ -45,4 +45,4 @@
                 : "excellent.svg" }" 
          :image-height 15
          :text "${ssid}"
-         :class "")))
+         :subtext "${security == "" ? "open" : "${security}"}")))

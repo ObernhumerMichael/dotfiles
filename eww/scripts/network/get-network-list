@@ -6,21 +6,23 @@ while [[ true ]]; do
   sleep 1
 
   current_list='(box :orientation "vertical" :space-evenly false'
-  wifi_json="$(nmcli -t -f ssid,signal dev wifi | # Fetches the SSID and signal strength
-      awk -F: '$1 != "" {print}' | #  Filters out lines where the SSID is empty
-      sort -t: -k2 -nr | #  Sorts the output by the signal strength (descending)
-      awk -F: '!seen[$1]++ {printf "{\"ssid\":\"%s\",\"signal\":%s},", $1, $2}' |
+  wifi_json="$(nmcli -t -f ssid,signal,security dev wifi | # Fetches the SSID, signal strength, and security
+      awk -F: '$1 != "" {print}' | # Filters out lines where the SSID is empty
+      sort -t: -k2 -nr | # Sorts the output by the signal strength (descending)
+      awk -F: '!seen[$1]++ {printf "{\"ssid\":\"%s\",\"signal\":%s,\"security\":\"%s\"},", $1, $2, $3}' |
       # 1. Filters for the strongest SSID per network
-      # 2. Formats each line as a JSON object: {"ssid":"SSID_NAME","signal":SIGNAL}
+      # 2. Formats each line as a JSON object: {"ssid":"SSID_NAME","signal":SIGNAL,"security":"SECURITY"}
       # 3. Appends a comma to each object
       sed 's/,$//' | # Removes the trailing comma from the final JSON object
-  awk 'BEGIN {print "["} {print} END {print "]"}')"  # Wraps the JSON objects in square brackets to form a JSON array
+      awk 'BEGIN {print "["} {print} END {print "]"}')"  # Wraps the JSON objects in square brackets to form a JSON array
 
   # Use process substitution instead of a pipe to preserve the changes to literal
   while read -r element; do
       ssid=$(echo "$element" | jq -r '.ssid')
       signal=$(echo "$element" | jq -r '.signal')
-      current_list+="(ssid-list-element :ssid \"$ssid\" :signal $signal) "
+      security=$(echo "$element" | jq -r '.security')
+      
+      current_list+="(ssid-list-element :ssid \"$ssid\" :signal $signal :security \"$security\") "
   done < <(echo "$wifi_json" | jq -c '.[]')
   current_list+=")"
   

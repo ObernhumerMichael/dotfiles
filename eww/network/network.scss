@@ -15,6 +15,10 @@
   background-color: rgba($color: $base, $alpha: 0.1);
 }
 
+.ssid .subtext {
+  color: $overlay0;
+}
+
 .wifi-off:hover {
   background-color: $red;
 }

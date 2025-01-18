@@ -1,7 +1,8 @@
-(defwidget icon-text [icon_path text class]
+(defwidget icon-text [icon_path text ?class ?subtext]
  (box :class "${class}" :space-evenly false :spacing 10
   (image :path icon_path :image-height 15) 
-  (label :text "${text}")))
+  (label :text "${text}")
+  (label :class "subtext" :text "${subtext}")))
 
 (defwidget metric [value onchange]
   (box :orientation "h"
