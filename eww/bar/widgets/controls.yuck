@@ -32,8 +32,8 @@
       : "brightness_high.svg"}"))
 
 ; Network (for wifi see eww/network/network.yuck
-(defpoll active-network-name :interval "2s" :initial "" "scripts/network/get-network-name")
-(defpoll active-network-strength :interval "2s" :initial "" "scripts/network/get-current-network-strength")
+(defpoll active-network-name :interval "1s" :initial "" "scripts/network/get-network-name")
+(defpoll active-network-strength :interval "1s" :initial "" "scripts/network/get-current-network-strength")
 
 (defwidget network[]
   (button :class "widget network" :onclick "eww open-many --toggle network-selector network-selector-closer" :onrightclick "nm-connection-editor &"

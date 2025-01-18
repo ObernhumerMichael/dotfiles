@@ -1,4 +1,4 @@
-(defpoll wifi-list :interval "1s" :initial "" "scripts/network/get-network-list")
+(deflisten wifi-list :initial "" "scripts/network/get-network-list")
 (defpoll is-lan-available :interval "1s" :initial false "scripts/network/is-ethernet-avialable")
 (defpoll is-wifi-on :interval "1s" :initial false "nmcli radio wifi")
 
