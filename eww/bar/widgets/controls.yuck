@@ -1,5 +1,5 @@
 ; Sound
-(defpoll volume :interval "1s" :initial 30 "scripts/system/get-vol")
+(defpoll volume :interval "100ms" :initial 30 "scripts/system/get-vol")
 (defvar is-sound-hover false) 
 (defwidget sound[]
  (metric-icon-revealer 
@@ -17,7 +17,7 @@
 
 ; Brightness
 (defvar is-brightness-hover false) 
-(defpoll brightness :interval "1s" :initial 30 "scripts/system/get-brightness")
+(defpoll brightness :interval "100ms" :initial 30 "scripts/system/get-brightness")
 (defwidget brightness[]
  (metric-icon-revealer 
     :value brightness 
