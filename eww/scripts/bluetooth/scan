@@ -21,6 +21,15 @@ while [[ true ]]; do
           paired=$(bluetoothctl info "$mac" | grep -q "Paired: yes" && echo true || echo false)
           trusted=$(bluetoothctl info "$mac" | grep -q "Trusted: yes" && echo true || echo false)
           connected=$(bluetoothctl info "$mac" | grep -q "Connected: yes" && echo true || echo false)
+          icon=$(bluetoothctl info "$mac" | grep "Icon:" | awk -F: '{printf $2}' | awk '{$1=$1}1')
+          battery=$(bluetoothctl info "$mac" | grep 'Battery Percentage' | awk '{printf $4}' | awk '{$1=$1}1')
+
+          # If there is no information on battery set it to -1
+          if [[ -z "$battery" ]]; then
+            battery=-1
+          else 
+            battery=${battery:1:-1}
+          fi
 
           # Append device information to JSON
           json_output+=$(cat <<EOF
@@ -29,7 +38,9 @@ while [[ true ]]; do
   "name": "$name",
   "paired": $paired,
   "trusted": $trusted,
-  "connected": $connected
+  "connected": $connected,
+  "icon": "$icon",
+  "battery": "$battery"
 },
 EOF
 )
@@ -55,8 +66,10 @@ EOF
       paired=$(echo "$device" | jq -r '.paired')
       trusted=$(echo "$device" | jq -r '.trusted')
       connected=$(echo "$device" | jq -r '.connected')
+      icon=$(echo "$device" | jq -r '.icon')
+      battery=$(echo "$device" | jq -r '.battery')
 
-      current_list+="(bluetooth-device :name \"$name\" :mac \"$mac\" :is-paired $paired :is-trusted $trusted :is-connected $connected)"
+      current_list+="(bluetooth-device :name \"$name\" :mac \"$mac\" :is-paired $paired :is-trusted $trusted :is-connected $connected :icon \"$icon\" :battery $battery)"
   done < <(echo "$json_output" | jq -c '.[]')
   current_list+=")"
 

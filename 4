@@ -35,31 +35,27 @@
       :class "bluetooth-el"
       :onclick "${is-connected ? "bluetoothctl disconnect ${mac} &" :  "bluetoothctl connect ${mac} &"}" 
       :hexpand true 
-      ; Icon if available
-      (box :space-evenly false :spacing 0
-        (revealer :reveal {icon != ""} :transition "slideleft" 
-          (image :icon "${icon}" :image-height 15 :class "bluetooth-padding"))
+      (box :space-evenly false :spacing 5
+        (box :space-evenly false
+          (revealer :reveal {icon != ""} :transition "slideleft" 
+              (image :icon "${icon}" :image-height 15))
+          (revealer :reveal {battery >= 0} :transition "slideleft" 
+            (box :space-evenly false :spacing 5 
+              (image :path "bar/img/battery/${battery > 95 ? "full.svg" 
+                : battery > 85 ? "6_bar.svg"
+                : battery > 70 ? "5_bar.svg"
+                : battery > 55 ? "4_bar.svg"
+                : battery > 40 ? "3_bar.svg"
+                : battery > 25 ? "2_bar.svg"
+                : battery > 10 ? "1_bar.svg"
+                : battery > 0 ? "0_bar.svg"
+                : "unknown.svg"}" 
+                :image-height 15) 
+              (label :text "${battery}%"))))
+        (label :halign "start" :text "${name}")
+        (label :halign "start" :text "${is-connected ? "connected":""}" :class "subtext")))
 
-        (label :text "${name}" :class "bluetooth-padding")
-
-      ; Battery if available
-        (revealer :reveal {battery >= 0} :transition "slideleft" 
-          (box :space-evenly false :spacing 5 
-            (image :path "bar/img/battery/${battery > 95 ? "full.svg" 
-              : battery > 85 ? "6_bar.svg"
-              : battery > 70 ? "5_bar.svg"
-              : battery > 55 ? "4_bar.svg"
-              : battery > 40 ? "3_bar.svg"
-              : battery > 25 ? "2_bar.svg"
-              : battery > 10 ? "1_bar.svg"
-              : battery > 0 ? "0_bar.svg"
-              : "unknown.svg"}" 
-              :image-height 15) 
-            (label :text "${battery}%" :class "bluetooth-padding")))
-
-        (label :text "${is-connected ? "connected":""}" :class "subtext")))
-
-    ; Actions
+    ; Icons/Actions
     (box :space-evenly false 
       (revealer :reveal {is-paired && is-trusted} :transition "slideleft" 
         (box :space-evenly false

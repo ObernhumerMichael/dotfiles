@@ -53,12 +53,12 @@
           : "excellent.svg" }" 
           :image-height 15)))))
 
+(defpoll is-bluetooth-on :interval "1s" "bluetoothctl show | grep PowerState | awk -F: '{printf $2}' | awk '{$1=$1}1'")
 (defwidget bluetooth[]
   (button :class "widget bluetooth" :onclick "eww open-many --toggle bluetooth-selector bluetooth-selector-closer" :onrightclick "blueman-manager &"
    (box :space-evenly false :spacing 10
-    (tooltip 
-       (label :class "widget bluetooth tooltip" :text "TODO") 
-       (image :path "bar/img/bluetooth/bluetooth.svg" :image-height 15)))))
+       (image :image-height 15 :path "bar/img/bluetooth/${is-bluetooth-on == "on" ? 
+          "bluetooth.svg" : "bluetooth_off.svg"}"))))
 
 ; Battery
 (defpoll battery-percentage :interval "5s" :initial -1 "scripts/battery/get-percentage")
