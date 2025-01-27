@@ -25,6 +25,11 @@ sudo pacman -S --needed sane-airscan simple-scan
 sudo systemctl start cups.service
 sudo systemctl enable cups.service
 
+echo "Power Management"
+sudo pacman -S --needed power-profiles-daemon powertop
+sudo systemctl enable power-profiles-daemon.service
+sudo systemctl start power-profiles-daemon.service
+
 echo "Usefull CLI tools"
 sudo pacman -S --needed exa bandwhich fzf bat duf zoxide entr ripgrep tldr
 
