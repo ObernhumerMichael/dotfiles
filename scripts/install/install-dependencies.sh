@@ -2,7 +2,7 @@
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 
 echo "Basics Hyprland"
-sudo pacman -S --needed zsh hyprland ttf-jetbrains-mono-nerd sddm swaync xdg-desktop-portal-hyprland qt6-wayland qt6-wayland git base-devel hyprlock polkit polkit-kde-agent xorg-xhost
+sudo pacman -S --needed zsh hyprland ttf-jetbrains-mono-nerd sddm swaync xdg-desktop-portal-hyprland qt6-wayland qt6-wayland git base-devel hyprlock polkit polkit-kde-agent xorg-xhost mesa-utils
 paru -S --needed hyprland-qtutils
 
 echo "Audio related essentails"
@@ -26,9 +26,12 @@ sudo systemctl start cups.service
 sudo systemctl enable cups.service
 
 echo "Power Management"
-sudo pacman -S --needed power-profiles-daemon powertop
+sudo pacman -S --needed power-profiles-daemon powertop nvidia-prime
+paru -S --needed optimus-manager optimus-manager-qt
 sudo systemctl enable power-profiles-daemon.service
 sudo systemctl start power-profiles-daemon.service
+sudo systemctl enable optimus-manager.service
+sudo systemctl start optimus-manager.service
 
 echo "Usefull CLI tools"
 sudo pacman -S --needed exa bandwhich fzf bat duf zoxide entr ripgrep tldr

@@ -17,6 +17,10 @@ $CONFIGS/sddm.sh
 
 seperate
 
+$CONFIGS/optimus-manager.sh
+
+seperate
+
 $CONFIGS/thunderbird.sh $DOTFILES_DIR
 
 seperate
