@@ -21,13 +21,13 @@ sudo pacman -S --needed cups system-config-printer sane hplip
 sudo pacman -S --needed gutenprint foomatic-db foomatic-db-engine foomatic-db-nonfree
 sudo pacman -S --needed sane-airscan simple-scan
 
-# Enable Services
 sudo systemctl start cups.service
 sudo systemctl enable cups.service
 
 echo "Power Management"
 sudo pacman -S --needed power-profiles-daemon powertop nvidia-prime
 paru -S --needed optimus-manager optimus-manager-qt
+
 sudo systemctl enable power-profiles-daemon.service
 sudo systemctl start power-profiles-daemon.service
 sudo systemctl enable optimus-manager.service

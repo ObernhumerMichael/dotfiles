@@ -16,7 +16,9 @@ To install the dotfiles
 
 # NVIDIA Users
 
-## Integrated Mode (Low Power)
+When one switches form one mode to another, the user **MUST** logout and log back in for the changes to take affect!
+
+## Integrated Mode (Power saver)
 
 **Note:** In this mode, external monitors may not work on some laptops!  
 This is because certain laptops have their HDMI ports directly wired to the NVIDIA graphics card.
@@ -48,7 +50,7 @@ __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME="nvidia" __VK_LAYER_NV_opt
 
 When a laptop boots while connected to a power supply, **NVIDIA Mode** is selected by default.
 
-- In this mode, the NVIDIA GPU acts as the primary graphics processor.
+- In this mode, the NVIDIA GPU acts as the sole graphics processor.
 - This mode provides **the best performance** but also has the **highest battery consumption**.
 - It is ideal when the laptop is plugged in and performance is the priority.
 
