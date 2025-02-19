@@ -24,6 +24,9 @@ sudo pacman -S --needed sane-airscan simple-scan
 sudo systemctl start cups.service
 sudo systemctl enable cups.service
 
+echo "Nvidia"
+sudo pacman -S --needed nvidia-utils
+
 echo "Power Management"
 sudo pacman -S --needed power-profiles-daemon powertop nvidia-prime
 paru -S --needed optimus-manager optimus-manager-qt
@@ -34,7 +37,7 @@ sudo systemctl enable optimus-manager.service
 sudo systemctl start optimus-manager.service
 
 echo "Usefull CLI tools"
-sudo pacman -S --needed exa bandwhich fzf bat duf zoxide entr ripgrep tldr
+sudo pacman -S --needed exa bandwhich fzf bat duf zoxide entr ripgrep tldr ghostscript speedtest-cli
 
 echo "Rice specific applications"
 paru -S --needed pyprland eww-git wlogout swaync

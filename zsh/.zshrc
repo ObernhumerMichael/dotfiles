@@ -35,3 +35,22 @@ alias ee="exa -algm --icons"
 alias ea="exa -a --icons"
 alias o="xdg-open"
 alias gwenview="gwenview -stylesheet ~/.config/qt6ct/qss/gwenview-style.qss"
+
+compress-pdf() {
+  if [[ "$1" == "--help" || -z "$1" ]]; then
+    echo "Usage: compress-pdf input.pdf output.pdf"
+    echo "Compress a PDF file using Ghostscript with a balanced compression setting."
+    echo "Arguments:"
+    echo "  input.pdf   The input PDF file to compress."
+    echo "  output.pdf  The output PDF file where the compressed version will be saved."
+    return 0
+  fi
+  
+  if [[ -z "$2" ]]; then
+    echo "Error: Missing output file."
+    echo "Usage: compress-pdf input.pdf output.pdf"
+    return 1
+  fi
+  
+  gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile="$2" "$1"
+}
