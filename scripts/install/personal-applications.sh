@@ -23,5 +23,6 @@ cd ~/
 # Some personal applications
 sudo pacman -S --needed gparted rsync thunderbird libreoffice-fresh nextcloud-client torbrowser-launcher
 
-# gammaray
-sudo pacman -S --needed gammaray
+# development 
+sudo pacman -S --needed gammaray 
+paru -S --needed visual-studio-code-bin
