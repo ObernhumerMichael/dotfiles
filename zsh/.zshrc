@@ -16,9 +16,6 @@ zstyle ':omz:update' frequency 7
 ENABLE_CORRECTION="false"
 HIST_STAMPS="dd.mm.yyyy"
 
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 plugins=(git docker zsh-autosuggestions zsh-you-should-use command-not-found zsh-syntax-highlighting)
@@ -29,6 +26,7 @@ source <(fzf --zsh)
 export FZF_DEFAULT_OPTS='--height 40% --tmux bottom,40% --layout reverse --border top --preview "bat --color=always --style=numbers --line-range=:500 {}"'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
+export PATH="$HOME/.local/bin:$PATH"
 
 alias e="exa --icons"
 alias ee="exa -algm --icons"
