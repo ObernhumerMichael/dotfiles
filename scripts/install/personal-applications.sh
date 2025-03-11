@@ -24,6 +24,15 @@ cd ~/
 sudo pacman -S --needed gparted rsync thunderbird libreoffice-fresh nextcloud-client torbrowser-launcher
 
 # development 
-sudo pacman -S --needed gammaray entr pandoc texlive texlive-lang
+sudo pacman -S --needed gammaray entr pandoc texlive texlive-lang 
 sudo npm install -g @mermaid-js/mermaid-cli
 paru -S --needed visual-studio-code-bin
+
+# install docker
+sudo pacman -S --needed docker docker-compose
+sudo systemctl start docker.service
+sudo systemctl enable docker.service
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+docker run hello-world
