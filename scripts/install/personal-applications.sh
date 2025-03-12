@@ -21,12 +21,13 @@ cd ~/
 
 
 # Some personal applications
-sudo pacman -S --needed gparted rsync thunderbird libreoffice-fresh nextcloud-client torbrowser-launcher
+sudo pacman -S --needed gparted rsync thunderbird libreoffice-fresh nextcloud-client torbrowser-launcher nmap openbsd-netcat 
+paru -S --needed google-chrome
 
 # development 
 sudo pacman -S --needed gammaray entr pandoc texlive texlive-lang 
 sudo npm install -g @mermaid-js/mermaid-cli
-paru -S --needed visual-studio-code-bin
+paru -S --needed visual-studio-code-bin insomnia
 
 # install docker
 sudo pacman -S --needed docker docker-compose
