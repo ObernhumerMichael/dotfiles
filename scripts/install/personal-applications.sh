@@ -22,7 +22,7 @@ cd ~/
 
 # Some personal applications
 sudo pacman -S --needed gparted rsync thunderbird libreoffice-fresh nextcloud-client torbrowser-launcher nmap openbsd-netcat 
-paru -S --needed google-chrome
+paru -S --needed google-chrome burpsuite
 
 # development 
 sudo pacman -S --needed gammaray entr pandoc texlive texlive-lang 
