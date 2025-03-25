@@ -27,6 +27,7 @@ export FZF_DEFAULT_OPTS='--height 40% --tmux bottom,40% --layout reverse --borde
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
 export PATH="$HOME/.local/bin:$PATH"
+export YDOTOOL_SOCKET="/tmp/.ydotool_socket"
 
 alias e="exa --icons"
 alias ee="exa -algm --icons"

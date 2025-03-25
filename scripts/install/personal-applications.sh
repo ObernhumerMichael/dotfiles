@@ -21,8 +21,26 @@ cd ~/
 
 
 # Some personal applications
-sudo pacman -S --needed gparted rsync thunderbird libreoffice-fresh nextcloud-client torbrowser-launcher nmap openbsd-netcat qbittorrent clamav rkhunter proton-vpn-gtk-app 
-paru -S --needed google-chrome burpsuite anki-bin
+sudo pacman -S --needed gparted rsync thunderbird libreoffice-fresh nextcloud-client torbrowser-launcher anki-bin google-chrome spotify-launcher poppler ydotool
+sudo usermod -aG input $USER
+# Install systemd service
+sudo ln -s /usr/lib/systemd/user/ydotool.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable ydotool
+sudo systemctl start ydotool
+# Remove the need for sudo
+sudo chmod +s $(which ydotool)
+
+# Security related
+sudo pacman -S --needed nmap openbsd-netcat qbittorrent clamav rkhunter wireguard-tools systemd-resolvconf proton-vpn-gtk-app libappindicator-gtk3 gnome-shell-extension-appindicator burpsuite macchanger
+paru -S --needed jwt_tool sqlmap tutanota-desktop 
+
+# gaming realted
+sudo pacman -S --needed steam wine wine-mono wine-gecko winetricks lib32-gnutls samba
+paru -S --needed heroic-games-launcher-bin gobuster-bin
+
+sudo systemctl start systemd-resolved
+sudo systemctl enable systemd-resolved
 
 # development 
 sudo pacman -S --needed gammaray entr pandoc texlive texlive-lang 
