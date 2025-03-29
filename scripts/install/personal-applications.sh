@@ -32,7 +32,7 @@ sudo systemctl start ydotool
 sudo chmod +s $(which ydotool)
 
 # Security related
-sudo pacman -S --needed nmap openbsd-netcat qbittorrent clamav rkhunter wireguard-tools systemd-resolvconf proton-vpn-gtk-app libappindicator-gtk3 gnome-shell-extension-appindicator burpsuite macchanger
+sudo pacman -S --needed nmap openbsd-netcat qbittorrent clamav rkhunter wireguard-tools systemd-resolvconf proton-vpn-gtk-app libappindicator-gtk3 gnome-shell-extension-appindicator burpsuite macchanger metadata-cleaner
 paru -S --needed jwt_tool sqlmap tutanota-desktop 
 
 # gaming realted
@@ -43,7 +43,7 @@ sudo systemctl start systemd-resolved
 sudo systemctl enable systemd-resolved
 
 # development 
-sudo pacman -S --needed gammaray entr pandoc texlive texlive-lang 
+sudo pacman -S --needed gammaray entr pandoc texlive texlive-lang php php-apache composer postgresql
 sudo npm install -g @mermaid-js/mermaid-cli
 paru -S --needed visual-studio-code-bin insomnia
 
