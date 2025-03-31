@@ -17,8 +17,11 @@ To install the dotfiles
 # NVIDIA Users
 
 When one switches form one mode to another, the user **MUST** logout and log back in for the changes to take affect!
+It is recommended to use the power-profiles in `scripts/power-profiles` to change the profiles manually.
 
 ## Integrated Mode (Power saver)
+
+When a laptop boots on battery power, **Integrated Mode** is selected by default.
 
 **Note:** In this mode, external monitors may not work on some laptops!  
 This is because certain laptops have their HDMI ports directly wired to the NVIDIA graphics card.
@@ -27,8 +30,6 @@ In **Integrated Mode**, the NVIDIA GPU is completely powered off to maximize bat
 This means all graphical processing is handled by the integrated GPU, reducing power consumption significantly.
 
 ## Hybrid Mode (Balanced)
-
-When a laptop boots on battery power, **Hybrid Mode** is selected by default.
 
 - In this mode, the NVIDIA GPU is powered on but only used when explicitly required.
 - Unlike **Integrated Mode**, external monitors **can** be used.
