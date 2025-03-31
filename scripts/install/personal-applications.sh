@@ -21,8 +21,17 @@ cd ~/
 
 
 # Some personal applications
-sudo pacman -S --needed gparted rsync thunderbird libreoffice-fresh nextcloud-client torbrowser-launcher anki-bin google-chrome spotify-launcher poppler ydotool
+sudo pacman -S --needed gparted rsync thunderbird libreoffice-fresh nextcloud-client torbrowser-launcher anki-bin google-chrome poppler ydotool 
 sudo usermod -aG input $USER
+
+# spotify
+sudo pacman -S --needed ffmpeg4.4 zenity
+paru -S --needed spotify spicetify-cli
+sudo chmod a+wr /opt/spotify
+sudo chmod a+wr /opt/spotify/Apps -R
+spicetify
+curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-marketplace/main/resources/install.sh | sh
+
 # Install systemd service
 sudo ln -s /usr/lib/systemd/user/ydotool.service /etc/systemd/system/
 sudo systemctl daemon-reload
