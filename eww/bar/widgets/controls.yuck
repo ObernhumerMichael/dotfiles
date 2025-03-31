@@ -39,7 +39,7 @@
   (button :class "widget network" :onclick "eww open-many --toggle network-selector network-selector-closer" :onrightclick "nm-connection-editor &"
    (box :space-evenly false :spacing 10
     (tooltip 
-       (label :class "widget network tooltip" 
+       (label :class "widget network" 
           ; if there is both a name and strength it is wlan, if there is only a name it is LAN
           :text {active-network-name != "" && active-network-strength != "" ? "${active-network-name} ${active-network-strength}%" 
                     : active-network-name != "" ? active-network-name 
