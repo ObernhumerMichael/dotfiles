@@ -21,8 +21,9 @@ cd ~/
 
 
 # Some personal applications
-sudo pacman -S --needed gparted rsync thunderbird libreoffice-fresh nextcloud-client torbrowser-launcher anki-bin google-chrome poppler ydotool 
+sudo pacman -S --needed gparted rsync thunderbird libreoffice-fresh nextcloud-client torbrowser-launcher anki-bin google-chrome poppler ydotool
 sudo usermod -aG input $USER
+paru -S --needed geogebra-6-bin
 
 # spotify
 sudo pacman -S --needed ffmpeg4.4 zenity
@@ -41,8 +42,8 @@ sudo systemctl start ydotool
 sudo chmod +s $(which ydotool)
 
 # Security related
-sudo pacman -S --needed nmap openbsd-netcat qbittorrent clamav rkhunter wireguard-tools systemd-resolvconf proton-vpn-gtk-app libappindicator-gtk3 gnome-shell-extension-appindicator burpsuite macchanger metadata-cleaner
-paru -S --needed jwt_tool sqlmap tutanota-desktop 
+sudo pacman -S --needed nmap openbsd-netcat qbittorrent clamav rkhunter wireguard-tools systemd-resolvconf proton-vpn-gtk-app libappindicator-gtk3 gnome-shell-extension-appindicator burpsuite macchanger metadata-cleaner john hashcat
+paru -S --needed jwt_tool sqlmap tutanota-desktop
 
 # gaming realted
 sudo pacman -S --needed steam wine wine-mono wine-gecko winetricks lib32-gnutls samba
