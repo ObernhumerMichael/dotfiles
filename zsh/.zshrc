@@ -28,6 +28,8 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
 export PATH="$HOME/.local/bin:$PATH"
 export YDOTOOL_SOCKET="/tmp/.ydotool_socket"
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/share/nvm/init-nvm.sh" ] && \. "/usr/share/nvm/init-nvm.sh"
 
 alias e="exa --icons"
 alias ee="exa -algm --icons"

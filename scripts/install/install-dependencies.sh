@@ -37,7 +37,7 @@ sudo systemctl enable optimus-manager.service
 sudo systemctl start optimus-manager.service
 
 echo "Usefull CLI tools"
-sudo pacman -S --needed exa bandwhich fzf bat duf zoxide entr ripgrep tldr ghostscript speedtest-cli ranger
+sudo pacman -S --needed exa bandwhich fzf bat duf zoxide entr ripgrep tldr ghostscript speedtest-cli ranger udisks2
 
 echo "Rice specific applications"
 paru -S --needed pyprland eww-git wlogout swaync

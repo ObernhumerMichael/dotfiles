@@ -16,6 +16,8 @@ function show_help() {
     echo "  --help       Show this help message"
 }
 
+../../hypr/scripts/gamemode.sh
+
 # Parse command line arguments
 while [[ $# -gt 0 ]]; do
     case "$1" in
@@ -42,22 +44,27 @@ switch_workspace() {
 
 copy_question() {
   ydotool type '@q'
+   sleep 0.15
 }
 
 copy_answer() {
   ydotool type '@a'
+   sleep 0.15
 }
 
 paste_clip() {
     ydotool key 29:1 47:1 29:0 47:0 # CTRL+v
+     sleep 0.15
 }
 
 press_tab() {
   ydotool key 15:1 15:0 # TAB
+   sleep 0.15
 }
 
 save_card() {
     ydotool key 29:1 28:1 29:0 28:0 # CTRL+ENTER
+     sleep 0.15
 }
 
 for ((i = 0; i < count; i++)); do
@@ -72,3 +79,6 @@ for ((i = 0; i < count; i++)); do
   paste_clip
   save_card
 done
+
+
+../../hypr/scripts/gamemode.sh
