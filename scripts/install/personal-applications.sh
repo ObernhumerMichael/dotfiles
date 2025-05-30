@@ -56,7 +56,7 @@ sudo systemctl enable systemd-resolved
 sudo pacman -S --needed lldb gammaray entr pandoc texlive texlive-lang php php-apache composer postgresql nvm
 sudo npm install -g @mermaid-js/mermaid-cli
 npm install -g eslint
-paru -S --needed visual-studio-code-bin bruno
+paru -S --needed visual-studio-code-bin bruno-bin
 
 # install docker
 sudo pacman -S --needed docker docker-compose
