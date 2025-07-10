@@ -21,7 +21,7 @@ cd ~/
 
 
 # Some personal applications
-sudo pacman -S --needed gparted rsync thunderbird libreoffice-fresh nextcloud-client torbrowser-launcher anki-bin google-chrome poppler ydotool
+sudo pacman -S --needed gparted rsync thunderbird libreoffice-fresh nextcloud-client torbrowser-launcher anki-bin google-chrome poppler ydotool virtualbox-host-modules-arch
 sudo usermod -aG input $USER
 paru -S --needed geogebra-6-bin
 
@@ -42,12 +42,12 @@ sudo systemctl start ydotool
 sudo chmod +s $(which ydotool)
 
 # Security related
-sudo pacman -S --needed nmap openbsd-netcat qbittorrent clamav rkhunter wireguard-tools systemd-resolvconf proton-vpn-gtk-app libappindicator-gtk3 gnome-shell-extension-appindicator burpsuite macchanger metadata-cleaner john hashcat veracrypt
+sudo pacman -S --needed nmap openbsd-netcat qbittorrent clamav rkhunter wireguard-tools systemd-resolvconf proton-vpn-gtk-app libappindicator-gtk3 gnome-shell-extension-appindicator burpsuite macchanger metadata-cleaner john hashcat veracrypt gnupg yubikey-manager wireshark-qt 
 paru -S --needed jwt_tool sqlmap tutanota-desktop
 
 # gaming realted
 sudo pacman -S --needed steam wine wine-mono wine-gecko winetricks lib32-gnutls samba
-paru -S --needed heroic-games-launcher-bin gobuster-bin
+paru -S --needed gobuster-bin
 
 sudo systemctl start systemd-resolved
 sudo systemctl enable systemd-resolved
